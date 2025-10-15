@@ -6,12 +6,29 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url('../img/fondo3.jfif'); /* Reemplaza con la ruta correcta a tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/    
     min-height: 100vh;
     padding: 20px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;    
 }
+::-webkit-scrollbar { width: 9px; height: 9px;}
+::-webkit-scrollbar-button { width: 0px; height: 0px;}
+::-webkit-scrollbar-thumb { background: transparent; border: 0px none #fff; border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover { background: #3d6077;}
+::-webkit-scrollbar-thumb:active { background: #8dd0d8;}
+::-webkit-scrollbar-track {background: transparent;border: 0px solid #aaa; border-radius: 5px;}
+::-webkit-scrollbar-track:hover { background: #e4e4e4;}
+::-webkit-scrollbar-track:active { background: #d2d2d2;}
+::-webkit-scrollbar-corner { background: transparent;}
 
 .container {
+    opacity: 0.95;
     max-width: 1200px;
     margin: 0 auto;
     background: white;
@@ -21,7 +38,11 @@ body {
 }
 
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     background-image: url('../img/banner7.jpeg'); /* Reemplaza con la ruta correcta a tu imagen */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/    
     color: white;
     padding: 40px;
     text-align: center;

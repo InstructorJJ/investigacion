@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" id="favicon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Módulo 3: Problema, Pregunta y Justificación</title>
+        <link rel="stylesheet" href="css/mod3.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📋 Módulo 3</h1>
+                <h2>El Problema, la Pregunta de Investigación y la Justificación</h2>
+                <p style="margin-top: 15px;">Fundamentos de Investigación para Análisis y Desarrollo de Software</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p style="margin-top: 10px; font-size: 0.9em;">Progreso del curso: 37.5% completado (3 de 8 módulos)</p>
+            </div>
+
+            <div class="content">
+                <!-- Introducción -->
+                <div class="section">
+                    <h2>🎯 Introducción</h2>
+                    <div class="inv-img">
+                        <img src="img/intro_m3.jpeg" alt="Tema e Idea de Investigación">
+                    </div>                     
+                    <p>En este módulo aprenderás a <strong>identificar y formular el problema de investigación</strong>, redactar preguntas de investigación efectivas y construir una justificación sólida para tu proyecto. Estos son los pilares fundamentales que darán dirección y propósito a tu investigación en desarrollo de software con metodología Scrum.</p>
+                    
+                    <div class="tip-box">
+                        <strong>💡 ¿Por qué es importante?</strong><br>
+                        Un problema bien definido es como un backlog bien estructurado en Scrum: te permite priorizar, planificar y ejecutar con claridad. Sin un problema claro, tu investigación será como un sprint sin objetivos definidos.
+                    </div>
+                </div>
+
+                <!-- El Problema de Investigación -->
+                <div class="section">
+                    <h2>🔍 1. El Problema de Investigación</h2>
+                    <div class="inv-img">
+                        <img src="img/prob_inv.jpeg" alt="Tema e Idea de Investigación">
+                    </div>                     
+                    <h3>¿Qué es un problema de investigación?</h3>
+                    <p>Es una <strong>situación, necesidad o brecha de conocimiento</strong> que requiere ser investigada y resuelta. En el contexto del desarrollo de software, generalmente surge de:</p>
+                    
+                    <ul class="checklist">
+                        <li>Ineficiencias en procesos de desarrollo</li>
+                        <li>Necesidades insatisfechas de usuarios</li>
+                        <li>Limitaciones tecnológicas actuales</li>
+                        <li>Oportunidades de mejora en metodologías</li>
+                        <li>Brechas entre la teoría y la práctica</li>
+                    </ul>
+
+                    <h3>Características de un buen problema de investigación</h3>
+                    
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>1. Factible</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            Debe ser posible investigarlo con los recursos, tiempo y habilidades disponibles.<br><br>
+                            <strong>Ejemplo:</strong> "Evaluar la efectividad de dailys de 10 minutos vs 15 minutos en equipos de 5 personas" (Factible) vs "Revolucionar completamente Scrum en toda la industria" (No factible)
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>2. Relevante</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            Debe aportar valor real al campo del desarrollo de software o a la organización.<br><br>
+                            <strong>Ejemplo:</strong> "Mejorar la velocidad de entrega en sprints" (Relevante) vs "Cambiar el color de la interfaz de Jira" (Poco relevante)
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>3. Específico</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            Debe estar claramente delimitado en alcance, contexto y variables.<br><br>
+                            <strong>Ejemplo:</strong> "Reducir bugs en producción mediante pair programming en el equipo X durante 3 sprints" (Específico) vs "Mejorar la calidad del software" (Muy general)
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>4. Medible</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            Debe permitir recopilar datos cuantitativos o cualitativos para evaluarlo.<br><br>
+                            <strong>Ejemplo:</strong> "Medir el impacto en velocity points y satisfacción del equipo" (Medible) vs "Hacer que el equipo sea más feliz" (Difícil de medir)
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>5. Original</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            Debe aportar algo nuevo o una perspectiva diferente al conocimiento existente.<br><br>
+                            <strong>Ejemplo:</strong> "Adaptar Scrum para equipos remotos en zonas horarias diferentes" (Original en contexto) vs "Implementar Scrum tal como está en la guía" (No original)
+                        </div>
+                    </div>
+
+                    <div class="ejemplo-scrum">
+                        <h4><span class="icon">🎯</span>Ejemplo Real en Scrum</h4>
+                        <p><strong>Contexto:</strong> Una empresa de desarrollo de software nota que sus equipos Scrum tienen una alta tasa de historias de usuario incompletas al final de cada sprint.</p>
+                        
+                        <div class="formula-box">
+                            <strong>❌ Problema mal formulado:</strong><br>
+                            "Los equipos tienen problemas con Scrum"
+                            <br><br>
+                            <strong>✅ Problema bien formulado:</strong><br>
+                            "Los equipos de desarrollo presentan un promedio del 35% de historias de usuario no completadas por sprint, lo que genera retrasos en la entrega de valor al cliente y reduce la predictibilidad del proceso. Este problema se ha identificado en 3 de los 4 equipos durante los últimos 6 sprints, afectando principalmente a historias de usuario con estimación superior a 13 story points."
+                        </div>
+                        
+                        <p><strong>¿Por qué es mejor?</strong> Es específico (35%, 3 de 4 equipos, 6 sprints), medible (story points, porcentaje), relevante (afecta entrega de valor), factible (contexto delimitado) y original (problema específico de esta organización).</p>
+                    </div>
+                </div>
+
+                <!-- La Pregunta de Investigación -->
+                <div class="section">
+                    <h2>❓ 2. La Pregunta de Investigación</h2>
+                    <div class="inv-img">
+                        <img src="img/preg_inv.jpeg" alt="Tema e Idea de Investigación">
+                    </div>                       
+                    <p>La pregunta de investigación es la <strong>interrogante específica</strong> que guiará todo tu estudio. Transforma el problema identificado en una pregunta que puedes responder mediante tu investigación.</p>
+
+                    <h3>Tipos de preguntas de investigación</h3>
+                    
+                    <table class="comparacion-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Propósito</th>
+                                <th>Ejemplo en Scrum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Descriptivas</strong></td>
+                                <td>Describen características o fenómenos</td>
+                                <td>¿Cuáles son las prácticas más comunes en las retrospectivas de equipos Scrum?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Comparativas</strong></td>
+                                <td>Comparan dos o más situaciones</td>
+                                <td>¿Cuál es la diferencia en velocity entre equipos que usan TDD vs los que no lo usan?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Relacionales</strong></td>
+                                <td>Buscan relaciones entre variables</td>
+                                <td>¿Qué relación existe entre la frecuencia de dailys y la comunicación del equipo?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Causales</strong></td>
+                                <td>Identifican causas y efectos</td>
+                                <td>¿Cómo afecta la implementación de pair programming a la calidad del código?</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exploratorias</strong></td>
+                                <td>Exploran temas poco estudiados</td>
+                                <td>¿Qué desafíos enfrentan los Product Owners juniors en sus primeros 6 meses?</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Fórmula para construir una buena pregunta</h3>
+                    
+                    <div class="formula-box">
+                        <strong>Estructura base:</strong><br>
+                        <span style="color: #667eea;">¿[Verbo de acción]</span> + 
+                        <span style="color: #764ba2;">[Variable/Fenómeno]</span> + 
+                        <span style="color: #f59e0b;">[Contexto específico]</span> + 
+                        <span style="color: #10b981;">[Delimitación]</span>?
+                        <br><br>
+                        <strong>Ejemplo aplicado:</strong><br>
+                        <span style="color: #667eea;">¿Cómo impacta</span>
+                        <span style="color: #764ba2;"> la implementación de automated testing</span>
+                        <span style="color: #f59e0b;"> en la velocidad de entrega de sprints</span>
+                        <span style="color: #10b981;"> en equipos Scrum de desarrollo web durante un trimestre</span>?
+                    </div>
+
+                    <div class="ejemplo-scrum">
+                        <h4><span class="icon">📝</span>Del Problema a la Pregunta</h4>
+                        
+                        <p><strong>Problema identificado:</strong><br>
+                        Los equipos de desarrollo presentan un 35% de historias no completadas por sprint.</p>
+                        
+                        <p style="margin-top: 15px;"><strong>Preguntas de investigación derivadas:</strong></p>
+                        
+                        <ul class="checklist">
+                            <li><strong>Principal:</strong> ¿Qué factores contribuyen al alto porcentaje de historias de usuario incompletas en los equipos Scrum de la empresa XYZ?</li>
+                            <li><strong>Secundaria 1:</strong> ¿Cómo influye la estimación de story points en la tasa de completitud de historias?</li>
+                            <li><strong>Secundaria 2:</strong> ¿Qué prácticas de refinamiento de backlog adoptan los equipos con mayor tasa de completitud?</li>
+                            <li><strong>Secundaria 3:</strong> ¿Cuál es la correlación entre el tamaño del equipo y las historias no completadas?</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>💡 Consejo de investigación:</strong><br>
+                        Una pregunta principal puede (y debe) tener preguntas secundarias que ayuden a responderla de manera más completa. Piensa en ellas como "sub-tareas" de tu historia de usuario principal.
+                    </div>
+                </div>
+
+                <!-- La Justificación -->
+                <div class="section">
+                    <h2>💼 3. La Justificación del Proyecto</h2>
+                    <div class="inv-img">
+                        <img src="img/justificacion.jpeg" alt="Tema e Idea de Investigación">
+                    </div>                      
+                    <p>La justificación explica <strong>por qué es importante</strong> realizar esta investigación y qué valor aportará. Es tu argumento de venta para demostrar que tu proyecto merece tiempo y recursos.</p>
+
+                    <h3>Componentes de una justificación sólida</h3>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>1. Justificación Teórica</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            <strong>Qué aporta al conocimiento existente:</strong><br><br>
+                            • Llena vacíos en la literatura<br>
+                            • Confirma o refuta teorías<br>
+                            • Extiende conocimiento a nuevos contextos<br><br>
+                            <strong>Ejemplo:</strong> "Esta investigación contribuirá a la literatura sobre metodologías ágiles al examinar la aplicabilidad de Scrum en equipos distribuidos globalmente, un área con escasa evidencia empírica según la revisión de 50 artículos del periodo 2020-2024."
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>2. Justificación Práctica</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            <strong>Qué problemas reales resolverá:</strong><br><br>
+                            • Mejora procesos existentes<br>
+                            • Reduce costos o tiempos<br>
+                            • Aumenta calidad o productividad<br>
+                            • Beneficia a usuarios finales<br><br>
+                            <strong>Ejemplo:</strong> "Los resultados permitirán a la empresa reducir el desperdicio en sprints, potencialmente aumentando la productividad en un 20% según estimaciones basadas en casos similares, lo que se traduciría en una entrega más rápida de valor al cliente."
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>3. Justificación Metodológica</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            <strong>Qué herramientas o métodos nuevos propone:</strong><br><br>
+                            • Nuevas formas de medir o evaluar<br>
+                            • Instrumentos de recolección de datos<br>
+                            • Adaptación de métodos existentes<br><br>
+                            <strong>Ejemplo:</strong> "Se desarrollará una métrica personalizada de 'sprint health' que combine velocity, calidad del código y satisfacción del equipo, proporcionando una herramienta que otros equipos Scrum podrán adoptar."
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>4. Justificación Social</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            <strong>A quién beneficia y cómo:</strong><br><br>
+                            • Beneficios para la comunidad<br>
+                            • Impacto en usuarios finales<br>
+                            • Mejoras en calidad de vida laboral<br><br>
+                            <strong>Ejemplo:</strong> "Esta investigación beneficiará a desarrolladores al proponer prácticas que reduzcan el burnout y mejoren el equilibrio vida-trabajo, contribuyendo al bienestar de aproximadamente 150 profesionales en la organización."
+                        </div>
+                    </div>
+
+                    <div class="ejemplo-scrum">
+                        <h4><span class="icon">📋</span>Justificación Completa: Ejemplo Integrado</h4>
+                        
+                        <div class="formula-box">
+                            <strong>Proyecto:</strong> Optimización de la planificación de sprints mediante análisis predictivo<br><br>
+                            
+                            <strong>Justificación:</strong><br><br>
+                            
+                            <strong style="color: #667eea;">Teórica:</strong> Esta investigación abordará la brecha existente en la literatura sobre la aplicación de machine learning para predecir la capacidad real de equipos Scrum, ampliando el marco teórico de metodologías ágiles predictivas documentado por Smith et al. (2023).<br><br>
+                            
+                            <strong style="color: #764ba2;">Práctica:</strong> Los equipos de desarrollo de la empresa ABC actualmente sobrestiman su capacidad en un 40%, generando compromisos incumplidos en 7 de cada 10 sprints. Esta investigación proporcionará un modelo predictivo que mejore la precisión de planificación en al menos 25%, reduciendo el replanificación y aumentando la confianza del cliente.<br><br>
+                            
+                            <strong style="color: #f59e0b;">Metodológica:</strong> Se desarrollará una herramienta de código abierto basada en datos históricos de Jira que permitirá a otros equipos implementar predicciones similares, democratizando el acceso a analytics avanzados en Scrum.<br><br>
+                            
+                            <strong style="color: #10b981;">Social:</strong> Beneficiará directamente a 45 desarrolladores al reducir el estrés asociado con compromisos irrealistas, y a más de 1,000 usuarios finales que recibirán entregas más predecibles y confiables.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicio Práctico -->
+                <div class="ejercicio">
+                    <h3>🎯 Ejercicio Práctico: Formula tu Problema, Pregunta y Justificación</h3>
+                    <p>Basándote en tu tema de investigación del Módulo 2, desarrolla los tres componentes fundamentales:</p>
+
+                    <div class="input-group">
+                        <label>1. Describe el problema de investigación (mínimo 100 palabras):</label>
+                        <textarea id="problema" placeholder="Ejemplo: En la empresa XYZ, los equipos Scrum han experimentado un incremento del 40% en defectos reportados en producción durante los últimos 4 sprints..."></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>2. Formula tu pregunta principal de investigación:</label>
+                        <textarea id="pregunta" placeholder="¿[Verbo] [variable/fenómeno] [contexto] [delimitación]?"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>3. Escribe 2-3 preguntas secundarias:</label>
+                        <textarea id="secundarias" placeholder="- ¿Pregunta secundaria 1?&#10;- ¿Pregunta secundaria 2?&#10;- ¿Pregunta secundaria 3?"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>4. Redacta tu justificación (incluye al menos 2 tipos: teórica, práctica, metodológica o social):</label>
+                        <textarea id="justificacion" placeholder="Justificación teórica: Esta investigación...&#10;&#10;Justificación práctica: Los resultados permitirán..."></textarea>
+                    </div>
+
+                    <button class="btn" onclick="validarEjercicio()">Validar mi Trabajo</button>
+                    <button class="btn" onclick="guardarProgreso()" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">💾 Guardar Progreso</button>
+
+                    <div id="feedbackEjercicio" class="feedback"></div>
+                </div>
+
+                <!-- Checklist de Autoevaluación -->
+                <div class="section">
+                    <h2>✅ Checklist de Autoevaluación</h2>
+                    <p>Antes de avanzar al siguiente módulo, verifica que tu trabajo cumpla con estos criterios:</p>
+
+                    <div style="background: white; padding: 20px; border-radius: 12px; margin-top: 20px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">Mi Problema de Investigación:</h3>
+                        <ul class="checklist">
+                            <li>Es específico y claramente delimitado</li>
+                            <li>Es factible con mis recursos disponibles</li>
+                            <li>Es relevante para el desarrollo de software/Scrum</li>
+                            <li>Incluye datos o contexto cuantificable</li>
+                            <li>Identifica consecuencias del problema</li>
+                        </ul>
+
+                        <h3 style="color: #764ba2; margin: 25px 0 15px 0;">Mi Pregunta de Investigación:</h3>
+                        <ul class="checklist">
+                            <li>Está formulada de manera clara y precisa</li>
+                            <li>Es respondible mediante investigación empírica</li>
+                            <li>Tiene un verbo de acción apropiado</li>
+                            <li>Incluye delimitación temporal o espacial</li>
+                            <li>Mis preguntas secundarias apoyan la pregunta principal</li>
+                        </ul>
+
+                        <h3 style="color: #f59e0b; margin: 25px 0 15px 0;">Mi Justificación:</h3>
+                        <ul class="checklist">
+                            <li>Incluye al menos dos tipos de justificación</li>
+                            <li>Explica claramente el valor de la investigación</li>
+                            <li>Identifica beneficiarios específicos</li>
+                            <li>Menciona resultados o impactos esperados</li>
+                            <li>Es convincente y está bien argumentada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Recursos Adicionales -->
+                <div class="section">
+                    <h2>📚 Recursos Adicionales y Lecturas Recomendadas</h2>
+                    
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>📖 Lecturas sobre Formulación de Problemas</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            • Hernández-Sampieri, R. (2014). "Planteamiento del problema cuantitativo"<br>
+                            • Arias, F. (2012). "El problema de investigación: Introducción a la metodología científica"<br>
+                            • Bunge, M. (2017). "La ciencia, su método y su filosofía"<br><br>
+                            <strong>Aplicado a Scrum:</strong><br>
+                            • Schwaber & Sutherland (2020). "The Scrum Guide" - Sección sobre impedimentos<br>
+                            • Rubin, K. (2012). "Essential Scrum" - Capítulo sobre refinamiento de problemas
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>🎥 Videos Recomendados</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            • "How to Write a Research Question" - Universidad de Stanford<br>
+                            • "Problem Statement Workshop" - MIT OpenCourseWare<br>
+                            • "Agile Research Methods" - Scrum.org webinar series<br>
+                            • "Justifying Your Research Project" - Academic Writing Center
+                        </div>
+                    </div>
+
+                    <div class="interactive-card" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <span>🛠️ Herramientas Útiles</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="card-content">
+                            • <strong>Miro/Mural:</strong> Para mapear problemas colaborativamente<br>
+                            • <strong>Notion/Obsidian:</strong> Para organizar preguntas e ideas<br>
+                            • <strong>Google Scholar:</strong> Para buscar investigaciones similares<br>
+                            • <strong>Mendeley/Zotero:</strong> Para gestionar referencias bibliográficas<br>
+                            • <strong>ChatGPT/Claude:</strong> Para refinar la redacción de preguntas
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Errores Comunes -->
+                <div class="section">
+                    <h2>⚠️ Errores Comunes a Evitar</h2>
+                    
+                    <table class="comparacion-table">
+                        <thead>
+                            <tr>
+                                <th>❌ Error</th>
+                                <th>✅ Corrección</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Problema demasiado amplio:</strong><br>"La calidad del software es baja"</td>
+                                <td><strong>Problema específico:</strong><br>"El módulo de pagos presenta 15 bugs críticos por sprint, afectando al 30% de transacciones"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pregunta cerrada:</strong><br>"¿Es bueno usar Scrum?"</td>
+                                <td><strong>Pregunta abierta investigable:</strong><br>"¿Cómo impacta la adopción de Scrum en la satisfacción del cliente en proyectos de 6 meses?"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Justificación vaga:</strong><br>"Es importante mejorar el proceso"</td>
+                                <td><strong>Justificación específica:</strong><br>"Mejorará la velocity en 20%, ahorrando 80 horas/mes, lo que permitirá entregar 2 features adicionales por trimestre"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pregunta con sesgo:</strong><br>"¿Por qué Scrum es mejor que Waterfall?"</td>
+                                <td><strong>Pregunta neutral:</strong><br>"¿Qué diferencias existen en la velocidad de entrega entre proyectos Scrum y Waterfall?"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Problema sin evidencia:</strong><br>"Creemos que hay problemas"</td>
+                                <td><strong>Problema documentado:</strong><br>"Las métricas de los últimos 6 sprints muestran un aumento del 45% en rework"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Caso de Estudio Completo -->
+                <div class="section" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left-color: #10b981;">
+                    <h2>🎓 Caso de Estudio Completo</h2>
+                    
+                    <div class="ejemplo-scrum">
+                        <h4><span class="icon">🏢</span>Empresa TechSolutions - Proyecto Real</h4>
+                        
+                        <p><strong>Contexto:</strong> TechSolutions es una empresa de 200 empleados que desarrolla aplicaciones móviles. Han notado problemas en la comunicación entre el Product Owner y el equipo de desarrollo.</p>
+                        
+                        <div class="formula-box">
+                            <h3 style="color: #667eea; margin-bottom: 15px;">📋 EL PROBLEMA</h3>
+                            <p>Durante los últimos 8 sprints, los equipos de desarrollo de TechSolutions han experimentado un promedio de 12 cambios de requerimientos por sprint después de la sprint planning, generando un incremento del 40% en el tiempo de desarrollo y un 25% de historias rechazadas en la sprint review. Este problema afecta a los 3 equipos Scrum de la división móvil (equipos de 7-9 personas cada uno) y se ha intensificado desde la incorporación de 2 nuevos Product Owners sin experiencia previa en metodologías ágiles hace 6 meses.</p>
+                            
+                            <p style="margin-top: 15px;"><strong>Impacto cuantificado:</strong></p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>156 horas de trabajo desperdiciadas por trimestre</li>
+                                <li>Reducción de 18% en la satisfacción del cliente (NPS bajó de 72 a 54)</li>
+                                <li>Incremento del 30% en la rotación del personal técnico</li>
+                                <li>Retraso promedio de 2.5 semanas en entregables comprometidos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="formula-box" style="margin-top: 20px;">
+                            <h3 style="color: #764ba2; margin-bottom: 15px;">❓ LAS PREGUNTAS DE INVESTIGACIÓN</h3>
+                            
+                            <p><strong>Pregunta Principal:</strong></p>
+                            <p style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                            ¿Qué prácticas de comunicación y refinamiento de backlog implementadas entre Product Owners y equipos de desarrollo reducen los cambios de requerimientos post-planning en equipos Scrum de desarrollo móvil?
+                            </p>
+                            
+                            <p style="margin-top: 20px;"><strong>Preguntas Secundarias:</strong></p>
+                            <ol style="margin-left: 20px; margin-top: 10px;">
+                                <li>¿Cuál es la frecuencia óptima de sesiones de refinamiento de backlog para minimizar cambios post-planning?</li>
+                                <li>¿Qué técnicas de escritura de historias de usuario (formato, criterios de aceptación, DoD) se correlacionan con menor tasa de cambios?</li>
+                                <li>¿Cómo influye el nivel de experiencia del Product Owner en la claridad de requerimientos y la estabilidad del sprint?</li>
+                                <li>¿Qué herramientas de colaboración (Jira, Miro, Confluence) facilitan mejor la comunicación asíncrona sobre requerimientos?</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="formula-box" style="margin-top: 20px;">
+                            <h3 style="color: #f59e0b; margin-bottom: 15px;">💼 LA JUSTIFICACIÓN</h3>
+                            
+                            <p><strong style="color: #1e40af;">Justificación Teórica:</strong></p>
+                            <p style="margin: 10px 0 20px 0;">Esta investigación contribuirá al cuerpo de conocimiento sobre comunicación en Scrum al examinar específicamente la relación entre prácticas de refinamiento de backlog y estabilidad de sprints en contextos de Product Owners novatos. Si bien existe literatura sobre refinamiento (Cohn, 2010; Rubin, 2012), hay escasa evidencia empírica sobre estrategias de mitigación cuando el PO carece de experiencia, una situación común en empresas en crecimiento.</p>
+                            
+                            <p><strong style="color: #9f1239;">Justificación Práctica:</strong></p>
+                            <p style="margin: 10px 0 20px 0;">Los resultados permitirán a TechSolutions desarrollar un protocolo estandarizado de refinamiento que potencialmente reduzca los cambios post-planning en un 60%, recuperando aproximadamente 100 horas productivas por trimestre (valoradas en $8,000 USD) y mejorando la predictibilidad de entregas. Además, proporcionará un programa de capacitación para Product Owners que podrá ser replicado en otras divisiones de la empresa, beneficiando a 8 equipos adicionales.</p>
+                            
+                            <p><strong style="color: #065f46;">Justificación Metodológica:</strong></p>
+                            <p style="margin: 10px 0 20px 0;">Se diseñará una métrica compuesta llamada "Índice de Estabilidad de Sprint" (IES) que combine tasa de cambios, historias rechazadas y tiempo de retrabajo, proporcionando una herramienta cuantitativa que otros equipos Scrum pueden adoptar para medir la salud de su proceso de refinamiento. Esta métrica será publicada como código abierto.</p>
+                            
+                            <p><strong style="color: #7c2d12;">Justificación Social:</strong></p>
+                            <p style="margin: 10px 0;">Esta investigación beneficiará directamente a 25 desarrolladores y 3 Product Owners al reducir el estrés causado por cambios constantes y falta de claridad, mejorando su calidad de vida laboral. Indirectamente, beneficiará a más de 50,000 usuarios finales de las aplicaciones móviles al recibir productos de mayor calidad y con entregas más predecibles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen del Módulo -->
+                <div class="section">
+                    <h2>📝 Resumen del Módulo 3</h2>
+                    
+                    <div class="tip-box">
+                        <strong>🎯 Conceptos Clave Aprendidos:</strong>
+                    </div>
+                    
+                    <ul class="checklist">
+                        <li><strong>El Problema de Investigación</strong> es una situación que requiere ser investigada. Debe ser factible, relevante, específico, medible y original.</li>
+                        <li><strong>La Pregunta de Investigación</strong> transforma el problema en una interrogante respondible. Puede ser descriptiva, comparativa, relacional, causal o exploratoria.</li>
+                        <li><strong>La Justificación</strong> explica por qué vale la pena realizar la investigación, incluyendo aspectos teóricos, prácticos, metodológicos y sociales.</li>
+                        <li>Un problema bien formulado incluye <strong>contexto, datos cuantificables, alcance delimitado e impacto documentado</strong>.</li>
+                        <li>Las preguntas secundarias <strong>apoyan y complementan</strong> la pregunta principal, permitiendo responderla de forma integral.</li>
+                        <li>La justificación debe ser <strong>específica, cuantificable y convincente</strong>, identificando beneficiarios concretos.</li>
+                    </ul>
+
+                    <div class="tip-box" style="margin-top: 25px; background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left-color: #3b82f6;">
+                        <strong>🚀 Preparación para el Módulo 4:</strong><br><br>
+                        En el siguiente módulo aprenderás a definir <strong>objetivos SMART</strong>, establecer el <strong>alcance</strong> de tu investigación y comprender los diferentes <strong>niveles de investigación</strong> (exploratorio, descriptivo, correlacional, explicativo). Estos elementos convertirán tu problema y pregunta en un plan de acción concreto.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="nav-buttons">
+                <button class="nav-btn" id="antBtn" onclick="modulo_2()">2️⃣ Módulo 2</button>
+                <span class="section-counter">Módulo 3 de 8</span>
+                <button class="nav-btn" id="nextBtn" onclick="">4️⃣ Módulo 4</button>
+            </div>
+        </div>
+        <script src="js/mod3.js"></script>
+    </body>
+</html>
