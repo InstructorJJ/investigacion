@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/vnd.microsoft.icon" id="favicon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Módulo 2: Tema e Idea de Investigación</title>
+        <link rel="stylesheet" href="css/mod2.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📚 Módulo 2: Tema e Idea de Investigación</h1>
+                <p>Enfoques de la Investigación <span class="scrum-badge">Scrum</span></p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            <div class="learning-path">
+                <div class="path-item completed">
+                    <a class="no_sub" href="index.html">1️⃣ Módulo 1</a>
+                </div>
+                <div class="path-item current">Módulo 2</div>
+                <div class="path-item">Módulo 3</div>
+                <div class="path-item">Módulo 4</div>
+                <div class="path-item">Módulo 5</div>
+                <div class="path-item">Módulo 6</div>
+                <div class="path-item">Módulo 7</div>
+                <div class="path-item">Módulo 8</div>
+            </div>
+
+            <div class="content">
+                <!-- Sección 1: Introducción -->
+                <section class="section active">
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="changeTab(0)">📌 Introducción</button>
+                        <button class="tab-btn" onclick="changeTab(1)">💡 Tema vs Idea</button>
+                        <button class="tab-btn" onclick="changeTab(2)">🔍 Enfoques</button>
+                        <button class="tab-btn" onclick="changeTab(3)">✏️ Ejercicio</button>
+                    </div>
+
+                    <!-- Tab 1: Introducción -->
+                    <div class="tab-content" id="tab0">
+                        <h2 style="color: #667eea; margin-bottom: 20px;">Bienvenida al Módulo 2</h2>
+                        <div class="card">
+                            <h3>🎯 Objetivo del módulo</h3>
+                            <p>En este módulo aprenderás a identificar, formular y diferenciar entre un tema de investigación y una idea de investigación. Comprenderás también los diferentes enfoques metodológicos que existen en la investigación científica, esenciales para tu trabajo como analista y desarrollador de software.</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>📖 ¿Por qué es importante?</h3>
+                            <p>Un tema bien definido y una idea clara son la base de cualquier investigación exitosa. En el contexto del desarrollo de software, esto te permitirá identificar problemas reales en sistemas, proponer soluciones innovadoras y fundamentar tus decisiones técnicas con investigación rigurosa.</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🔄 Metodología Scrum en esta unidad</h3>
+                            <p><strong>Sprint Planning:</strong> Definiremos el tema y la idea como historias de usuario. <strong>Daily Standup:</strong> Revisaremos diariamente nuestro progreso en la clarificación de la investigación. <strong>Sprint Review:</strong> Al final, presentarás tu tema e idea formulados correctamente.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h4>💻 Ejemplo en desarrollo de software:</h4>
+                            <p><strong>Tema:</strong> Seguridad en aplicaciones web.</p>
+                            <p><strong>Idea de investigación:</strong> Analizar las vulnerabilidades más comunes en sistemas de autenticación de aplicaciones web empresariales y proponer soluciones basadas en mejores prácticas actuales.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Tema vs Idea -->
+                    <div class="tab-content" id="tab1" style="display: none;">
+                        <h2 style="color: #667eea; margin-bottom: 20px;">Diferencia entre Tema e Idea de Investigación</h2>
+                        
+                        <div class="comparison-grid">
+                            <div class="comparison-box">
+                                <div class="icon">📌</div>
+                                <h4>TEMA</h4>
+                                <ul>
+                                    <li>Es general y amplio</li>
+                                    <li>Área del conocimiento</li>
+                                    <li>Tiene múltiples enfoques</li>
+                                    <li>Punto de partida</li>
+                                    <li>Ejemplo: "Bases de datos"</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-box">
+                                <div class="icon">💡</div>
+                                <h4>IDEA</h4>
+                                <ul>
+                                    <li>Es específica y acotada</li>
+                                    <li>Aspecto particular del tema</li>
+                                    <li>Enfoque definido</li>
+                                    <li>Concreción del tema</li>
+                                    <li>Ejemplo: "Optimización de consultas en BD NoSQL"</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>📊 Relación entre tema e idea</h3>
+                            <p>El tema es como un árbol frondoso, y la idea es una rama específica de ese árbol. La idea de investigación debe nacer del tema, refinarlo y especificarlo. De un único tema pueden surgir múltiples ideas de investigación.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <h4>💻 Proceso de refinamiento en software:</h4>
+                            <p><strong>Tema inicial:</strong> Testing de software</p>
+                            <p><strong>Idea refinada:</strong> Comparación de la efectividad de pruebas automatizadas versus manuales en la detección de bugs en aplicaciones mobile</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Enfoques de investigación -->
+                    <div class="tab-content" id="tab2" style="display: none;">
+                        <h2 style="color: #667eea; margin-bottom: 20px;">Enfoques de la Investigación</h2>
+
+                        <div class="comparison-grid" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+                            <div class="comparison-box">
+                                <div class="icon">🔬</div>
+                                <h4>CUANTITATIVO</h4>
+                                <ul>
+                                    <li>Números y datos</li>
+                                    <li>Estadística</li>
+                                    <li>Medible</li>
+                                    <li>Objetivo</li>
+                                    <li>Hipótesis probables</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-box">
+                                <div class="icon">📝</div>
+                                <h4>CUALITATIVO</h4>
+                                <ul>
+                                    <li>Descripción detallada</li>
+                                    <li>Interpretación</li>
+                                    <li>Experiencias</li>
+                                    <li>Subjetivo</li>
+                                    <li>Comprensión profunda</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-box">
+                                <div class="icon">🔄</div>
+                                <h4>MIXTO</h4>
+                                <ul>
+                                    <li>Combina ambos</li>
+                                    <li>Cuantitativo + cualitativo</li>
+                                    <li>Triangulación</li>
+                                    <li>Visión integral</li>
+                                    <li>Mayor validez</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3>📱 Ejemplos en desarrollo de software</h3>
+                            <p><strong>Cuantitativo:</strong> Medir el rendimiento de un algoritmo (tiempo de ejecución, uso de memoria)</p>
+                            <p><strong>Cualitativo:</strong> Analizar la experiencia del usuario en una interfaz mediante entrevistas</p>
+                            <p><strong>Mixto:</strong> Combinar métricas de rendimiento con testimonios de usuarios</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🎯 ¿Cómo elegir tu enfoque?</h3>
+                            <p><strong>Elige cuantitativo si:</strong> Buscas medir, comparar números, validar hipótesis matemáticas.</p>
+                            <p><strong>Elige cualitativo si:</strong> Buscas comprender procesos, experiencias, contextos complejos.</p>
+                            <p><strong>Elige mixto si:</strong> Necesitas validar hallazgos con múltiples perspectivas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4: Ejercicio -->
+                    <div class="tab-content" id="tab3" style="display: none;">
+                        <h2 style="color: #667eea; margin-bottom: 20px;">✏️ Ejercicio Práctico: Define tu Tema e Idea</h2>
+
+                        <div class="exercise-box">
+                            <h4>Ejercicio 1: Identifica tu Tema</h4>
+                            <p>Selecciona un área del desarrollo de software que te interese investigar. Puede ser: seguridad, rendimiento, usabilidad, arquitectura, testing, etc.</p>
+                            <textarea id="tema" placeholder="Escribe el tema general de tu investigación..."></textarea>
+                            <button onclick="guardarTema()">💾 Guardar Tema</button>
+                            <div id="feedbackTema" style="margin-top: 10px; display: none; padding: 10px; background: #d4edda; border-radius: 5px; color: #155724;"></div>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h4>Ejercicio 2: Refina tu Idea</h4>
+                            <p>Ahora especifica tu tema. Agrega un aspecto particular, un problema específico o una pregunta concreta relacionada con tu tema.</p>
+                            <textarea id="idea" placeholder="Escribe tu idea específica de investigación..."></textarea>
+                            <button onclick="guardarIdea()">💾 Guardar Idea</button>
+                            <div id="feedbackIdea" style="margin-top: 10px; display: none; padding: 10px; background: #d4edda; border-radius: 5px; color: #155724;"></div>
+                        </div>
+
+                        <div class="exercise-box">
+                            <h4>Ejercicio 3: Selecciona tu Enfoque</h4>
+                            <p>¿Qué enfoque utilizarías para investigar tu idea? Justifica tu elección.</p>
+                            <select id="enfoque" style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 2px solid #ddd; font-size: 1em;">
+                                <option value="">Selecciona un enfoque...</option>
+                                <option value="cuantitativo">Cuantitativo (números, estadística)</option>
+                                <option value="cualitativo">Cualitativo (descripción, interpretación)</option>
+                                <option value="mixto">Mixto (ambos enfoques)</option>
+                            </select>
+                            <textarea id="justificacion" placeholder="Justifica por qué elegiste este enfoque..."></textarea>
+                            <button onclick="guardarEnfoque()">💾 Guardar Enfoque</button>
+                            <div id="feedbackEnfoque" style="margin-top: 10px; display: none; padding: 10px; background: #d4edda; border-radius: 5px; color: #155724;"></div>
+                        </div>
+
+                        <div class="card" style="background: #e8f4f8; border-left-color: #17a2b8; margin-top: 20px;">
+                            <h3 style="color: #17a2b8;">📋 Resumen de tu propuesta</h3>
+                            <p id="resumen" style="font-style: italic; color: #666;">Completa los ejercicios anteriores para ver tu resumen aquí...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" onclick="modulo_1()">1️⃣ Módulo 1</button>
+                <span class="section-counter">Módulo 2 de 8</span>
+                <button class="nav-btn" id="nextBtn" onclick="modulo_3()">3️⃣ Módulo 3</button>
+            </div>
+        </div>
+        <script src="js/mod2.js"></script>
+    </body>
+</html>
