@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Módulo 4: Objetivos, Alcance y Niveles de Investigación</title>
+        <link rel="stylesheet" href="css/mod4.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Módulo 4</h1>
+                <h2>Objetivos, Alcance y Niveles de Investigación</h2>
+                <p class="encabezado">Definiendo el rumbo de tu proyecto de investigación</p>
+                <div class="module-info">
+                    <div class="info-badge">⏱️ Duración: 1 semana</div>
+                    <div class="info-badge">📚 Nivel: Intermedio</div>
+                    <div class="info-badge">🎯 Módulo 4 de 8</div>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <h3 style="margin-bottom: 15px;">Tu progreso en este módulo:</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar">0%</div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🎯 Introducción: ¿Por qué son importantes los objetivos?</h2>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    Los objetivos son la brújula de tu investigación. Sin objetivos claros, tu proyecto carece de dirección. 
+                    En este módulo aprenderás a formular objetivos precisos, definir el alcance de tu investigación y 
+                    comprender los diferentes niveles de profundidad investigativa.
+                </p>
+
+                <div class="ejemplo-scrum">
+                    <strong>🔄 Analogía con Scrum:</strong> Los objetivos de investigación son como el <strong>Product Goal</strong> 
+                    en Scrum: definen qué queremos lograr. El alcance es similar al <strong>Sprint Backlog</strong>: delimita 
+                    qué haremos y qué no. Los niveles de investigación determinan la profundidad de cada Sprint.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🎯 1. Objetivos de Investigación</h2>
+                
+                <h3>¿Qué son los objetivos de investigación?</h3>
+                <p>Son enunciados claros y precisos que establecen QUÉ se quiere lograr con la investigación. Actúan como metas específicas que guían todo el proceso investigativo.</p>
+
+                <div class="tabs">
+                    <button class="tab-button active" onclick="changeTab(event, 'objetivo-general')">Objetivo General</button>
+                    <button class="tab-button" onclick="changeTab(event, 'objetivos-especificos')">Objetivos Específicos</button>
+                    <button class="tab-button" onclick="changeTab(event, 'diferencias')">Diferencias</button>
+                </div>
+
+                <div id="objetivo-general" class="tab-content active">
+                    <div class="objetivo-card">
+                        <h3>🎯 Objetivo General</h3>
+                        <p><strong>Definición:</strong> Es el propósito principal de la investigación. Responde a la pregunta central y establece el resultado final esperado.</p>
+                        
+                        <h4 style="margin-top: 20px;">Características:</h4>
+                        <ul style="margin-left: 25px; margin-top: 10px;">
+                            <li>Es uno solo por proyecto</li>
+                            <li>Es amplio pero alcanzable</li>
+                            <li>Se relaciona directamente con el problema de investigación</li>
+                            <li>Inicia con un verbo en infinitivo</li>
+                            <li>Es medible y verificable</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">Verbos comunes:</h4>
+                        <p style="margin-top: 10px;">
+                            <strong>Determinar, Analizar, Evaluar, Proponer, Diseñar, Desarrollar, Implementar, Establecer, Identificar, Demostrar</strong>
+                        </p>
+                    </div>
+
+                    <div class="ejemplo-scrum">
+                        <strong>📱 Ejemplo - Proyecto Scrum para App de Gestión de Tareas:</strong><br><br>
+                        <strong>Objetivo General:</strong><br>
+                        "Desarrollar una aplicación móvil de gestión de tareas utilizando metodología Scrum que mejore la productividad 
+                        de equipos de desarrollo de software en un 30% mediante la implementación de recordatorios inteligentes y 
+                        sincronización en tiempo real."
+                    </div>
+                </div>
+
+                <div id="objetivos-especificos" class="tab-content">
+                    <div class="objetivo-card">
+                        <h3>🎯 Objetivos Específicos</h3>
+                        <p><strong>Definición:</strong> Son las metas particulares que, al cumplirse, permiten alcanzar el objetivo general. Son los pasos concretos del camino.</p>
+                        
+                        <h4 style="margin-top: 20px;">Características:</h4>
+                        <ul style="margin-left: 25px; margin-top: 10px;">
+                            <li>Son entre 3 y 5 por proyecto</li>
+                            <li>Son más concretos y específicos</li>
+                            <li>Se derivan del objetivo general</li>
+                            <li>Cada uno aborda un aspecto particular</li>
+                            <li>Siguen una secuencia lógica</li>
+                            <li>Son independientes pero complementarios</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">Verbos comunes:</h4>
+                        <p style="margin-top: 10px;">
+                            <strong>Identificar, Describir, Caracterizar, Comparar, Clasificar, Examinar, Explicar, Diseñar, Construir, Validar, Medir</strong>
+                        </p>
+                    </div>
+
+                    <div class="ejemplo-scrum">
+                        <strong>📱 Ejemplo - Objetivos Específicos del mismo proyecto:</strong><br><br>
+                        <strong>OE1:</strong> Identificar los principales desafíos de productividad en equipos Scrum mediante encuestas y entrevistas a 50 desarrolladores.<br><br>
+                        <strong>OE2:</strong> Diseñar la arquitectura de la aplicación móvil aplicando principios de desarrollo ágil y patrones de diseño escalables.<br><br>
+                        <strong>OE3:</strong> Implementar funcionalidades de recordatorios inteligentes basados en machine learning para priorización automática de tareas.<br><br>
+                        <strong>OE4:</strong> Validar la efectividad de la aplicación mediante pruebas con 5 equipos Scrum durante 3 sprints consecutivos.<br><br>
+                        <strong>OE5:</strong> Evaluar el impacto en la productividad comparando métricas de velocity antes y después de la implementación.
+                    </div>
+                </div>
+
+                <div id="diferencias" class="tab-content">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Objetivo General</th>
+                                <th>Objetivos Específicos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Cantidad</strong></td>
+                                <td>Uno solo</td>
+                                <td>Entre 3 y 5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alcance</strong></td>
+                                <td>Amplio y global</td>
+                                <td>Concreto y particular</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Función</strong></td>
+                                <td>Define el propósito final</td>
+                                <td>Define los pasos para lograrlo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Relación</strong></td>
+                                <td>Responde a la pregunta de investigación</td>
+                                <td>Se derivan del objetivo general</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verificación</strong></td>
+                                <td>Se logra al completar todos los OE</td>
+                                <td>Cada uno se verifica independientemente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Consejo para formular objetivos en proyectos Scrum:</strong><br>
+                    Piensa en tus objetivos específicos como "Epics" que se descompondrán en "User Stories". 
+                    Cada objetivo específico debería poder convertirse en un conjunto de tareas medibles en tus sprints.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🎯 2. Alcance de la Investigación</h2>
+                
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    El alcance define los límites de tu investigación: qué incluirás y qué quedará fuera. 
+                    Es fundamental para gestionar expectativas y recursos.
+                </p>
+
+                <h3>¿Qué incluye el alcance?</h3>
+                
+                <div class="nivel-card">
+                    <h4>🌍 Delimitación Espacial</h4>
+                    <p><strong>¿Dónde?</strong> Define el lugar geográfico o contexto donde se realizará la investigación.</p>
+                    <p><strong>Ejemplo:</strong> "La investigación se realizará con equipos de desarrollo de las empresas de tecnología ubicadas en Bucaramanga, Colombia."</p>
+                </div>
+
+                <div class="nivel-card">
+                    <h4>⏰ Delimitación Temporal</h4>
+                    <p><strong>¿Cuándo?</strong> Establece el período de tiempo que abarcará el estudio.</p>
+                    <p><strong>Ejemplo:</strong> "El estudio comprenderá el período de enero a junio de 2025, equivalente a 6 sprints de 3 semanas cada uno."</p>
+                </div>
+
+                <div class="nivel-card">
+                    <h4>👥 Delimitación Poblacional</h4>
+                    <p><strong>¿Quiénes?</strong> Define las características de los sujetos o elementos de estudio.</p>
+                    <p><strong>Ejemplo:</strong> "Se trabajará con equipos Scrum de 5 a 9 miembros, con al menos 6 meses de experiencia usando la metodología."</p>
+                </div>
+
+                <div class="nivel-card">
+                    <h4>📚 Delimitación Temática</h4>
+                    <p><strong>¿Qué aspectos?</strong> Especifica los temas o variables que se abordarán.</p>
+                    <p><strong>Ejemplo:</strong> "Se analizarán específicamente: velocity del equipo, calidad del código (medido en bugs), y satisfacción del cliente. No se incluirán aspectos financieros ni de recursos humanos."</p>
+                </div>
+
+                <div class="ejemplo-scrum">
+                    <strong>🔄 Alcance completo del proyecto de ejemplo:</strong><br><br>
+                    "Esta investigación desarrollará una aplicación móvil de gestión de tareas para equipos Scrum <strong>(temático)</strong>, 
+                    trabajando con 5 equipos de desarrollo de empresas tecnológicas de Bucaramanga <strong>(espacial y poblacional)</strong>, 
+                    durante el primer semestre de 2025 <strong>(temporal)</strong>. Se medirá el impacto en productividad, pero no se analizarán 
+                    costos de implementación ni aspectos de infraestructura de servidores <strong>(límites)</strong>."
+                </div>
+
+                <div class="tip-box">
+                    <strong>💡 Importancia de definir límites:</strong><br>
+                    Establecer qué NO harás es tan importante como definir qué SÍ harás. Esto evita el "scope creep" 
+                    (crecimiento descontrolado del alcance) común en proyectos de investigación y desarrollo.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>📊 3. Niveles de Investigación</h2>
+                
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    Los niveles de investigación determinan la profundidad y el tipo de conocimiento que generarás. 
+                    Cada nivel tiene propósitos específicos y requiere diferentes metodologías.
+                </p>
+
+                <div class="tabs">
+                    <button class="tab-button active" onclick="changeTab(event, 'exploratorio')">Exploratorio</button>
+                    <button class="tab-button" onclick="changeTab(event, 'descriptivo')">Descriptivo</button>
+                    <button class="tab-button" onclick="changeTab(event, 'correlacional')">Correlacional</button>
+                    <button class="tab-button" onclick="changeTab(event, 'explicativo')">Explicativo</button>
+                </div>
+
+                <div id="exploratorio" class="tab-content active">
+                    <div class="nivel-card">
+                        <h3>🔍 Investigación Exploratoria</h3>
+                        <p><strong>Propósito:</strong> Examinar un tema poco estudiado o nuevo. Es el primer acercamiento al problema.</p>
+                        
+                        <h4>Características:</h4>
+                        <ul style="margin-left: 25px; margin-top: 10px;">
+                            <li>Se usa cuando hay poca información sobre el tema</li>
+                            <li>Es flexible y abierta a descubrimientos</li>
+                            <li>No busca conclusiones definitivas</li>
+                            <li>Genera hipótesis para futuras investigaciones</li>
+                            <li>Es la base para estudios más profundos</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">Métodos comunes:</h4>
+                        <p>Revisión bibliográfica, entrevistas abiertas, grupos focales, observación preliminar.</p>
+
+                        <div class="ejemplo-scrum" style="margin-top: 20px;">
+                            <strong>💻 Ejemplo en desarrollo de software:</strong><br>
+                            "Explorar las dificultades que enfrentan los equipos de desarrollo al adoptar por primera vez la metodología Scrum en startups colombianas."
+                            <br><br>
+                            <strong>¿Por qué es exploratorio?</strong> Hay poco conocimiento previo sobre esta situación específica en el contexto colombiano.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="descriptivo" class="tab-content">
+                    <div class="nivel-card">
+                        <h3>📋 Investigación Descriptiva</h3>
+                        <p><strong>Propósito:</strong> Describir características, propiedades o perfiles de fenómenos, personas, grupos o situaciones.</p>
+                        
+                        <h4>Características:</h4>
+                        <ul style="margin-left: 25px; margin-top: 10px;">
+                            <li>Responde a preguntas: ¿Qué es? ¿Cómo es? ¿Dónde está? ¿Cuándo ocurre?</li>
+                            <li>Mide o recopila información sobre variables</li>
+                            <li>No establece causas, solo describe</li>
+                            <li>Usa técnicas cuantitativas y cualitativas</li>
+                            <li>Los resultados se presentan en cifras, porcentajes o descripciones detalladas</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">Métodos comunes:</h4>
+                        <p>Encuestas, observación sistemática, análisis de documentos, estudios de caso.</p>
+
+                        <div class="ejemplo-scrum" style="margin-top: 20px;">
+                            <strong>💻 Ejemplo en desarrollo de software:</strong><br>
+                            "Caracterizar las prácticas actuales de gestión de sprint retrospectives en equipos Scrum de empresas medianas, 
+                            identificando herramientas utilizadas, frecuencia, duración y nivel de participación del equipo."
+                            <br><br>
+                            <strong>¿Por qué es descriptivo?</strong> Se busca describir "cómo son" las prácticas actuales, sin explicar por qué son así.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="correlacional" class="tab-content">
+                    <div class="nivel-card">
+                        <h3>🔗 Investigación Correlacional</h3>
+                        <p><strong>Propósito:</strong> Determinar si existe relación entre dos o más variables y en qué grado se relacionan.</p>
+                        
+                        <h4>Características:</h4>
+                        <ul style="margin-left: 25px; margin-top: 10px;">
+                            <li>Mide la relación entre variables</li>
+                            <li>La correlación puede ser positiva, negativa o nula</li>
+                            <li>NO implica causalidad (correlación ≠ causación)</li>
+                            <li>Permite hacer predicciones</li>
+                            <li>Requiere mediciones cuantificables</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">Métodos comunes:</h4>
+                        <p>Análisis estadístico, coeficiente de correlación, regresión lineal, estudios longitudinales.</p>
+
+                        <div class="ejemplo-scrum" style="margin-top: 20px;">
+                            <strong>💻 Ejemplo en desarrollo de software:</strong><br>
+                            "Analizar la relación entre la experiencia previa del Scrum Master (en años) y la velocity promedio 
+                            de los equipos Scrum en empresas de desarrollo de software."
+                            <br><br>
+                            <strong>¿Por qué es correlacional?</strong> Se busca determinar si hay relación entre dos variables 
+                            (experiencia del SM y velocity), pero no se afirma que una cause la otra.
+                        </div>
+
+                        <div class="tip-box" style="margin-top: 20px;">
+                            <strong>⚠️ Advertencia importante:</strong><br>
+                            "La correlación no implica causalidad". Que dos variables estén relacionadas no significa que una cause la otra. 
+                            Puede haber una tercera variable (confusora) que afecte a ambas.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="explicativo" class="tab-content">
+                    <div class="nivel-card">
+                        <h3>🎓 Investigación Explicativa</h3>
+                        <p><strong>Propósito:</strong> Explicar las causas de los fenómenos y establecer relaciones causa-efecto.</p>
+                        
+                        <h4>Características:</h4>
+                        <ul style="margin-left: 25px; margin-top: 10px;">
+                            <li>Es el nivel más profundo de investigación</li>
+                            <li>Responde a ¿Por qué? ¿Qué causa? ¿Cuál es el efecto?</li>
+                            <li>Establece relaciones causales</li>
+                            <li>Requiere control de variables</li>
+                            <li>Se apoya en estudios previos (exploratorios, descriptivos, correlacionales)</li>
+                        </ul>
+
+                        <h4 style="margin-top: 20px;">Métodos comunes:</h4>
+                        <p>Experimentos, cuasi-experimentos, estudios longitudinales con grupo control, análisis causal.</p>
+
+                        <div class="ejemplo-scrum" style="margin-top: 20px;">
+                            <strong>💻 Ejemplo en desarrollo de software:</strong><br>
+                            "Determinar el efecto de implementar daily standups virtuales versus presenciales en la comunicación efectiva 
+                            y la resolución de impedimentos en equipos Scrum distribuidos geográficamente."
+                            <br><br>
+                            <strong>¿Por qué es explicativo?</strong> Se busca establecer una relación causa (tipo de daily) - 
+                            efecto (comunicación y resolución de problemas), controlando otras variables.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <strong>📈 Progresión de niveles:</strong><br>
+                    Los niveles de investigación a menudo siguen una secuencia natural:<br>
+                    <strong>Exploratorio</strong> → descubres el problema →<br>
+                    <strong>Descriptivo</strong> → describes cómo es →<br>
+                    <strong>Correlacional</strong> → encuentras relaciones →<br>
+                    <strong>Explicativo</strong> → explicas por qué ocurre
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🎯 4. Cómo Elegir el Nivel Adecuado</h2>
+                
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    La elección del nivel depende de varios factores. Usa esta guía para tomar la decisión correcta:
+                </p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Pregunta</th>
+                            <th>Respuesta</th>
+                            <th>Nivel Recomendado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>¿Existe mucha información previa sobre el tema?</td>
+                            <td>NO</td>
+                            <td>Exploratorio</td>
+                        </tr>
+                        <tr>
+                            <td>¿Quieres conocer características o propiedades?</td>
+                            <td>SÍ</td>
+                            <td>Descriptivo</td>
+                        </tr>
+                        <tr>
+                            <td>¿Buscas saber si dos cosas están relacionadas?</td>
+                            <td>SÍ</td>
+                            <td>Correlacional</td>
+                        </tr>
+                        <tr>
+                            <td>¿Quieres saber por qué ocurre algo?</td>
+                            <td>SÍ</td>
+                            <td>Explicativo</td>
+                        </tr>
+                        <tr>
+                            <td>¿Puedes controlar variables experimentalmente?</td>
+                            <td>SÍ</td>
+                            <td>Explicativo</td>
+                        </tr>
+                        <tr>
+                            <td>¿Tienes recursos y tiempo limitados?</td>
+                            <td>SÍ</td>
+                            <td>Exploratorio o Descriptivo</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="ejemplo-scrum">
+                    <strong>🎯 Ejemplo integrado - Proyecto de investigación sobre Scrum:</strong><br><br>
+                    
+                    <strong>Problema:</strong> Los equipos Scrum en startups tecnológicas tienen baja productividad.<br><br>
+                    
+                    <strong>Objetivo General:</strong> Desarrollar un framework de buenas prácticas para mejorar la productividad 
+                    de equipos Scrum en startups tecnológicas colombianas.<br><br>
+                    
+                    <strong>Objetivos Específicos:</strong><br>
+                    • <strong>OE1 (Descriptivo):</strong> Caracterizar las prácticas actuales de gestión Scrum en 20 startups tecnológicas.<br>
+                    • <strong>OE2 (Correlacional):</strong> Analizar la relación entre la madurez en Scrum y la velocity de los equipos.<br>
+                    • <strong>OE3 (Explicativo):</strong> Determinar el impacto de implementar refinement sessions estructurados en la calidad de las user stories.<br>
+                    • <strong>OE4 (Descriptivo):</strong> Diseñar un framework de buenas prácticas basado en los hallazgos.<br>
+                    • <strong>OE5 (Explicativo):</strong> Validar la efectividad del framework mediante pruebas piloto en 5 startups.<br><br>
+                    
+                    <strong>Alcance:</strong><br>
+                    • Espacial: Startups de Bucaramanga y área metropolitana<br>
+                    • Temporal: Enero - Junio 2025 (6 meses)<br>
+                    • Poblacional: Equipos Scrum de 5-9 personas con mínimo 3 meses de experiencia<br>
+                    • Temático: Prácticas Scrum, productividad (velocity, quality). No incluye aspectos salariales ni organizacionales.<br><br>
+                    
+                    <strong>Nivel de Investigación:</strong> Mixto (Descriptivo, Correlacional y Explicativo)
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>✅ Checklist de Calidad para tus Objetivos</h2>
+                
+                <p style="margin-bottom: 20px;">Marca cada criterio a medida que verificas tus objetivos:</p>
+
+                <div class="checklist">
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox"> 
+                        <strong>Claridad:</strong> Los objetivos están redactados de forma clara y sin ambigüedades
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Medibles:</strong> Cada objetivo puede ser verificado con indicadores concretos
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Alcanzables:</strong> Son realistas considerando tiempo, recursos y capacidades
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Relevantes:</strong> Responden directamente al problema de investigación
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Temporales:</strong> Se pueden cumplir en el tiempo establecido
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Coherencia:</strong> Los objetivos específicos se derivan lógicamente del general
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Completitud:</strong> Al cumplir todos los OE, se logra el objetivo general
+                    </div>
+                    <div class="checklist-item" onclick="toggleCheck(this)">
+                        <input type="checkbox">
+                        <strong>Verbos apropiados:</strong> Usan verbos en infinitivo adecuados al nivel de investigación
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>💪 Ejercicio Práctico: Define los Objetivos de tu Proyecto</h2>
+                
+                <div class="exercise-box">
+                    <div class="exercise-title">
+                        🎯 Ejercicio 1: Formulación de Objetivos
+                    </div>
+                    
+                    <p><strong>Contexto:</strong> Vas a desarrollar un proyecto sobre la implementación de pruebas automatizadas en equipos Scrum.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Problema identificado:</strong> "Los equipos Scrum tienen alta tasa de bugs en producción 
+                    porque no implementan pruebas automatizadas de manera sistemática."</p>
+
+                    <h4 style="margin-top: 20px;">Paso 1: Formula el Objetivo General</h4>
+                    <p style="font-size: 0.9em; color: #666;">Recuerda: debe ser amplio, comenzar con un verbo en infinitivo, y abordar el problema principal.</p>
+                    <textarea id="objetivoGeneral" placeholder="Escribe tu objetivo general aquí..."></textarea>
+
+                    <h4 style="margin-top: 20px;">Paso 2: Formula 4 Objetivos Específicos</h4>
+                    <p style="font-size: 0.9em; color: #666;">Recuerda: deben ser concretos, medibles, y en conjunto lograr el objetivo general.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>OE1:</strong></p>
+                    <textarea id="oe1" placeholder="Primer objetivo específico..."></textarea>
+
+                    <p style="margin-top: 15px;"><strong>OE2:</strong></p>
+                    <textarea id="oe2" placeholder="Segundo objetivo específico..."></textarea>
+
+                    <p style="margin-top: 15px;"><strong>OE3:</strong></p>
+                    <textarea id="oe3" placeholder="Tercer objetivo específico..."></textarea>
+
+                    <p style="margin-top: 15px;"><strong>OE4:</strong></p>
+                    <textarea id="oe4" placeholder="Cuarto objetivo específico..."></textarea>
+
+                    <button onclick="evaluarObjetivos()">✅ Evaluar mis Objetivos</button>
+                    <button onclick="verEjemplo()">💡 Ver Ejemplo Sugerido</button>
+
+                    <div id="feedbackObjetivos" class="feedback"></div>
+                </div>
+
+                <div class="exercise-box" style="margin-top: 30px;">
+                    <div class="exercise-title">
+                        🎯 Ejercicio 2: Define el Alcance
+                    </div>
+                    
+                    <p>Para el mismo proyecto, define cada delimitación del alcance:</p>
+
+                    <h4 style="margin-top: 20px;">Delimitación Espacial (¿Dónde?)</h4>
+                    <textarea id="alcanceEspacial" placeholder="Ejemplo: Empresas de desarrollo de software de Bogotá..."></textarea>
+
+                    <h4 style="margin-top: 20px;">Delimitación Temporal (¿Cuándo?)</h4>
+                    <textarea id="alcanceTemporal" placeholder="Ejemplo: Durante el segundo semestre de 2025..."></textarea>
+
+                    <h4 style="margin-top: 20px;">Delimitación Poblacional (¿Quiénes?)</h4>
+                    <textarea id="alcancePoblacional" placeholder="Ejemplo: Equipos Scrum de 5-9 personas con..."></textarea>
+
+                    <h4 style="margin-top: 20px;">Delimitación Temática y Límites (¿Qué incluirás y qué NO?)</h4>
+                    <textarea id="alcanceTematico" placeholder="Ejemplo: Se analizarán pruebas unitarias y de integración. NO se incluirán..."></textarea>
+
+                    <button onclick="evaluarAlcance()">✅ Evaluar mi Alcance</button>
+
+                    <div id="feedbackAlcance" class="feedback"></div>
+                </div>
+
+                <div class="exercise-box" style="margin-top: 30px;">
+                    <div class="exercise-title">
+                        🎯 Ejercicio 3: Identifica el Nivel de Investigación
+                    </div>
+                    
+                    <p>Lee cada objetivo y selecciona el nivel de investigación correspondiente:</p>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p><strong>Objetivo A:</strong> "Explorar las percepciones de los desarrolladores sobre la inteligencia artificial 
+                        en el testing automatizado."</p>
+                        <select id="nivelA" style="width: 100%; padding: 10px; margin-top: 10px; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value="">Selecciona el nivel...</option>
+                            <option value="exploratorio">Exploratorio</option>
+                            <option value="descriptivo">Descriptivo</option>
+                            <option value="correlacional">Correlacional</option>
+                            <option value="explicativo">Explicativo</option>
+                        </select>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p><strong>Objetivo B:</strong> "Caracterizar las herramientas de testing automatizado más utilizadas 
+                        en equipos Scrum colombianos durante 2024."</p>
+                        <select id="nivelB" style="width: 100%; padding: 10px; margin-top: 10px; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value="">Selecciona el nivel...</option>
+                            <option value="exploratorio">Exploratorio</option>
+                            <option value="descriptivo">Descriptivo</option>
+                            <option value="correlacional">Correlacional</option>
+                            <option value="explicativo">Explicativo</option>
+                        </select>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p><strong>Objetivo C:</strong> "Analizar la relación entre el porcentaje de cobertura de pruebas automatizadas 
+                        y la cantidad de bugs reportados en producción."</p>
+                        <select id="nivelC" style="width: 100%; padding: 10px; margin-top: 10px; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value="">Selecciona el nivel...</option>
+                            <option value="exploratorio">Exploratorio</option>
+                            <option value="descriptivo">Descriptivo</option>
+                            <option value="correlacional">Correlacional</option>
+                            <option value="explicativo">Explicativo</option>
+                        </select>
+                    </div>
+
+                    <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                        <p><strong>Objetivo D:</strong> "Determinar el impacto de implementar TDD (Test Driven Development) 
+                        en la calidad del código y el tiempo de desarrollo."</p>
+                        <select id="nivelD" style="width: 100%; padding: 10px; margin-top: 10px; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value="">Selecciona el nivel...</option>
+                            <option value="exploratorio">Exploratorio</option>
+                            <option value="descriptivo">Descriptivo</option>
+                            <option value="correlacional">Correlacional</option>
+                            <option value="explicativo">Explicativo</option>
+                        </select>
+                    </div>
+
+                    <button onclick="evaluarNiveles()">✅ Verificar Respuestas</button>
+
+                    <div id="feedbackNiveles" class="feedback"></div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>📚 Resumen del Módulo</h2>
+                
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 25px; border-radius: 15px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Has aprendido:</h3>
+                    
+                    <p><strong>✅ Objetivos de Investigación:</strong></p>
+                    <ul style="margin-left: 25px; margin-bottom: 20px;">
+                        <li>Diferencia entre objetivo general y específicos</li>
+                        <li>Cómo formularlos correctamente usando verbos apropiados</li>
+                        <li>Criterios de calidad (SMART)</li>
+                    </ul>
+
+                    <p><strong>✅ Alcance de la Investigación:</strong></p>
+                    <ul style="margin-left: 25px; margin-bottom: 20px;">
+                        <li>Las cuatro delimitaciones fundamentales (espacial, temporal, poblacional, temática)</li>
+                        <li>La importancia de establecer límites claros</li>
+                        <li>Cómo evitar el "scope creep"</li>
+                    </ul>
+
+                    <p><strong>✅ Niveles de Investigación:</strong></p>
+                    <ul style="margin-left: 25px; margin-bottom: 20px;">
+                        <li>Exploratorio: primer acercamiento a temas nuevos</li>
+                        <li>Descriptivo: caracterización de fenómenos</li>
+                        <li>Correlacional: relación entre variables</li>
+                        <li>Explicativo: causas y efectos</li>
+                    </ul>
+
+                    <p><strong>✅ Aplicación en proyectos Scrum:</strong></p>
+                    <ul style="margin-left: 25px;">
+                        <li>Cómo relacionar objetivos con Product Goals</li>
+                        <li>Ejemplos reales de investigación en desarrollo ágil</li>
+                        <li>Integración con metodología Scrum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>🎯 Próximos Pasos</h2>
+                
+                <div class="tip-box">
+                    <strong>📝 Para la próxima semana:</strong><br><br>
+                    
+                    1. <strong>Revisa tu proyecto:</strong> Toma el problema y la pregunta que formulaste en el Módulo 3.<br><br>
+                    
+                    2. <strong>Define tus objetivos:</strong> Escribe 1 objetivo general y entre 3-5 específicos usando esta plantilla.<br><br>
+                    
+                    3. <strong>Delimita el alcance:</strong> Define claramente qué incluirás y qué no en tu investigación.<br><br>
+                    
+                    4. <strong>Identifica el nivel:</strong> Determina qué nivel(es) de investigación aplicarás.<br><br>
+                    
+                    5. <strong>Prepárate para el Módulo 5:</strong> Aprenderás sobre métodos de investigación e hipótesis.
+                </div>
+            </div>
+            <!-- Navegación -->
+            <div class="nav-buttons">
+                <button class="nav-btn" id="antBtn" onclick="irModuloAnterior()">3️⃣ Módulo 3: Problema y Justificación</button>
+                <span class="section-counter">Módulo 4 de 8</span>
+                <button class="nav-btn" id="nextBtn" onclick="irModuloSiguiente()">5️⃣ Módulo 5: Métodos e Hipótesis</button>
+            </div>
+        </div>
+        <script src="js/mod4.js"></script>
+    </body>
+</html>
