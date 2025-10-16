@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function modulo_2() {
   window.location.href = "modulo2.html";
 }
+
 function modulo_4() {
   window.location.href = "modulo4.html";
 }
