@@ -229,6 +229,7 @@ function irModuloAnterior() {
 
 function irModuloSiguiente() {
     alert('¡Excelente! Has completado el Módulo 4. Avanzando al Módulo 5: Métodos de investigación e Hipótesis');
+    window.location.href = "modulo5.html";
 }
 
 // Inicializar progreso

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Módulo 5: Métodos de Investigación e Hipótesis</title>
+        <link rel="stylesheet" href="css/mod5.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>📊 Módulo 5: Métodos de Investigación e Hipótesis</h1>
+                <p>Fundamentos de Investigación para Análisis y Desarrollo de Software</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar">0%</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <!-- Introducción -->
+                <div class="section">
+                    <h2>🎯 Introducción</h2>
+                    <div class="inv-img">
+                        <img src="img/metodos.jpeg" alt="Métodos de la Investigación">
+                    </div>                 
+                    <div class="card">
+                        <p style="font-size: 1.1em; line-height: 1.8;">
+                            En este módulo aprenderás a seleccionar y aplicar los métodos de investigación más adecuados 
+                            para tu proyecto. Además, comprenderás cómo formular hipótesis efectivas que guiarán tu 
+                            investigación en el desarrollo de software con metodología Scrum.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Métodos de Investigación -->
+                <div class="section">
+                    <h2>🔬 Métodos de Investigación</h2>
+                    <div class="inv-img">
+                        <img src="img/metodos_inv.jpeg" alt="Métodos de la Investigación">
+                    </div>                 
+                    <h3>¿Qué son los métodos de investigación?</h3>
+                    <p style="line-height: 1.8; margin-bottom: 20px;">
+                        Los métodos de investigación son las estrategias y procedimientos que utilizarás para 
+                        recopilar, analizar e interpretar datos. Son el "cómo" de tu investigación.
+                    </p>
+
+                    <h3>Clasificación de los Métodos</h3>
+                    
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <div class="icon">📈</div>
+                            <h4>Método Cuantitativo</h4>
+                            <p><strong>Características:</strong></p>
+                            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                                <li>Usa números y estadísticas</li>
+                                <li>Muestras grandes</li>
+                                <li>Resultados generalizables</li>
+                                <li>Objetivo y medible</li>
+                            </ul>
+                            <p><strong>Técnicas:</strong> Encuestas, experimentos, análisis de métricas</p>
+                        </div>
+
+                        <div class="method-card">
+                            <div class="icon">💬</div>
+                            <h4>Método Cualitativo</h4>
+                            <p><strong>Características:</strong></p>
+                            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                                <li>Usa descripciones y narrativas</li>
+                                <li>Muestras pequeñas</li>
+                                <li>Profundidad en comprensión</li>
+                                <li>Subjetivo e interpretativo</li>
+                            </ul>
+                            <p><strong>Técnicas:</strong> Entrevistas, observación, grupos focales</p>
+                        </div>
+
+                        <div class="method-card">
+                            <div class="icon">🔄</div>
+                            <h4>Método Mixto</h4>
+                            <p><strong>Características:</strong></p>
+                            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                                <li>Combina ambos enfoques</li>
+                                <li>Mayor riqueza de datos</li>
+                                <li>Complementariedad</li>
+                                <li>Validación cruzada</li>
+                            </ul>
+                            <p><strong>Técnicas:</strong> Combinación de las anteriores</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabla Comparativa -->
+                    <h3>Comparación de Métodos</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Cuantitativo</th>
+                                <th>Cualitativo</th>
+                                <th>Mixto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Datos</strong></td>
+                                <td>Numéricos</td>
+                                <td>Textuales/Visuales</td>
+                                <td>Ambos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Muestra</strong></td>
+                                <td>Grande</td>
+                                <td>Pequeña</td>
+                                <td>Variable</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Análisis</strong></td>
+                                <td>Estadístico</td>
+                                <td>Interpretativo</td>
+                                <td>Combinado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Objetivo</strong></td>
+                                <td>Medir y generalizar</td>
+                                <td>Comprender en profundidad</td>
+                                <td>Comprensión completa</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tiempo</strong></td>
+                                <td>Relativamente rápido</td>
+                                <td>Más extenso</td>
+                                <td>Más extenso</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ejemplos Aplicados a Scrum -->
+                <div class="section">
+                    <h2>🚀 Ejemplos Aplicados a Desarrollo de Software con Scrum</h2>
+
+                    <div class="scrum-example">
+                        <div class="icon">📊</div>
+                        <h4>Ejemplo 1: Método Cuantitativo</h4>
+                        <p><strong>Investigación:</strong> "Impacto de la duración de los sprints en la productividad del equipo"</p>
+                        <p style="margin-top: 10px;"><strong>Método:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Recopilar métricas de velocity durante 6 meses</li>
+                            <li>Comparar sprints de 1, 2 y 3 semanas</li>
+                            <li>Medir story points completados</li>
+                            <li>Calcular promedios y desviaciones</li>
+                            <li>Aplicar pruebas estadísticas (ANOVA)</li>
+                        </ul>
+                    </div>
+
+                    <div class="scrum-example">
+                        <div class="icon">💬</div>
+                        <h4>Ejemplo 2: Método Cualitativo</h4>
+                        <p><strong>Investigación:</strong> "Percepción del equipo sobre las ceremonias Scrum"</p>
+                        <p style="margin-top: 10px;"><strong>Método:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Entrevistas en profundidad con 8 miembros del equipo</li>
+                            <li>Observación participante en daily scrums y retrospectivas</li>
+                            <li>Análisis de comentarios en retrospectivas</li>
+                            <li>Identificación de patrones y temas recurrentes</li>
+                            <li>Comprensión de motivaciones y resistencias</li>
+                        </ul>
+                    </div>
+
+                    <div class="scrum-example">
+                        <div class="icon">🔄</div>
+                        <h4>Ejemplo 3: Método Mixto</h4>
+                        <p><strong>Investigación:</strong> "Efectividad de la implementación de pruebas automatizadas en proyectos Scrum"</p>
+                        <p style="margin-top: 10px;"><strong>Fase Cuantitativa:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Medir cobertura de código antes y después</li>
+                            <li>Contar bugs reportados en producción</li>
+                            <li>Calcular tiempo de regresión</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Fase Cualitativa:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Entrevistas sobre experiencia del equipo</li>
+                            <li>Observar cómo usan las pruebas</li>
+                            <li>Analizar desafíos de adopción</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Consejo para Aprendices ADSO</h4>
+                        <p>Para proyectos de formación, el método mixto suele ser ideal porque te permite obtener 
+                        datos concretos (métricas de software) y comprender las experiencias humanas (cómo se siente 
+                        el equipo). ¡Es la combinación perfecta para proyectos Scrum!</p>
+                    </div>
+                </div>
+
+                <!-- Hipótesis -->
+                <div class="section">
+                    <h2>🔮 Hipótesis de Investigación</h2>
+                    <div class="inv-img">
+                        <img src="img/hipotesis.jpeg" alt="Métodos de la Investigación">
+                    </div>                 
+                    <h3>¿Qué es una hipótesis?</h3>
+                    <div class="card">
+                        <p style="line-height: 1.8;">
+                            Una hipótesis es una <strong>suposición fundamentada</strong> sobre la relación entre dos o más 
+                            variables que puede ser probada mediante la investigación. Es una respuesta tentativa a tu 
+                            pregunta de investigación.
+                        </p>
+                    </div>
+
+                    <h3>Características de una Buena Hipótesis</h3>
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>✓ Clara y Específica</h4>
+                            <p>Sin ambigüedades, fácil de entender</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>✓ Comprobable</h4>
+                            <p>Puede ser validada o refutada con datos</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>✓ Fundamentada</h4>
+                            <p>Basada en conocimiento existente</p>
+                        </div>
+                        <div class="method-card">
+                            <h4>✓ Variables Definidas</h4>
+                            <p>Identifica claramente las variables</p>
+                        </div>
+                    </div>
+
+                    <h3>Tipos de Hipótesis</h3>
+                    
+                    <div class="example-box">
+                        <h4>1. Hipótesis Descriptiva</h4>
+                        <p>Describe una característica o situación esperada.</p>
+                        <p style="margin-top: 10px;"><strong>Ejemplo:</strong> "El 70% de los equipos de desarrollo 
+                        en Colombia utilizan sprints de 2 semanas."</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>2. Hipótesis Correlacional</h4>
+                        <p>Establece relación entre dos variables sin indicar causa-efecto.</p>
+                        <p style="margin-top: 10px;"><strong>Ejemplo:</strong> "Existe una relación positiva entre 
+                        la participación en daily scrums y la satisfacción del equipo."</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>3. Hipótesis Causal</h4>
+                        <p>Indica que una variable causa cambios en otra.</p>
+                        <p style="margin-top: 10px;"><strong>Ejemplo:</strong> "La implementación de pair programming 
+                        reduce la cantidad de bugs en producción en un 40%."</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>4. Hipótesis Nula (H0)</h4>
+                        <p>Establece que NO hay relación o efecto.</p>
+                        <p style="margin-top: 10px;"><strong>Ejemplo:</strong> "La duración de los sprints no afecta 
+                        la productividad del equipo."</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>5. Hipótesis Alternativa (H1)</h4>
+                        <p>Lo opuesto a la hipótesis nula, lo que realmente quieres probar.</p>
+                        <p style="margin-top: 10px;"><strong>Ejemplo:</strong> "Sprints de 2 semanas aumentan la 
+                        productividad en un 25% comparado con sprints de 4 semanas."</p>
+                    </div>
+                </div>
+
+                <!-- Constructor Interactivo de Hipótesis -->
+                <div class="section">
+                    <h2>🛠️ Constructor Interactivo de Hipótesis</h2>
+                    
+                    <div class="interactive-hypothesis">
+                        <h3>Crea tu Hipótesis para un Proyecto Scrum</h3>
+                        <p style="margin-bottom: 20px;">Completa los campos para construir tu hipótesis:</p>
+                        
+                        <div class="hypothesis-builder">
+                            <div>
+                                <label><strong>1. Variable Independiente (causa):</strong></label>
+                                <input type="text" class="hypothesis-input" id="independent" 
+                                    placeholder="Ej: La implementación de pruebas automatizadas">
+                            </div>
+                            
+                            <div>
+                                <label><strong>2. Efecto/Relación:</strong></label>
+                                <select class="hypothesis-input" id="relation">
+                                    <option value="">Selecciona...</option>
+                                    <option value="aumenta">aumenta</option>
+                                    <option value="reduce">reduce</option>
+                                    <option value="mejora">mejora</option>
+                                    <option value="afecta positivamente">afecta positivamente</option>
+                                    <option value="se relaciona con">se relaciona con</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label><strong>3. Variable Dependiente (efecto):</strong></label>
+                                <input type="text" class="hypothesis-input" id="dependent" 
+                                    placeholder="Ej: la calidad del software entregado">
+                            </div>
+                            
+                            <div>
+                                <label><strong>4. Magnitud (opcional):</strong></label>
+                                <input type="text" class="hypothesis-input" id="magnitude" 
+                                    placeholder="Ej: en un 30%">
+                            </div>
+                            
+                            <div>
+                                <label><strong>5. Contexto (opcional):</strong></label>
+                                <input type="text" class="hypothesis-input" id="context" 
+                                    placeholder="Ej: en equipos de desarrollo con Scrum">
+                            </div>
+                            
+                            <button class="btn" onclick="generateHypothesis()">🔮 Generar Hipótesis</button>
+                        </div>
+                        
+                        <div class="result-box" id="hypothesisResult">
+                            <h4>✨ Tu Hipótesis:</h4>
+                            <p id="generatedHypothesis" style="font-size: 1.2em; line-height: 1.8; margin-top: 10px;"></p>
+                            
+                            <h4 style="margin-top: 20px;">📋 Hipótesis Nula (H0):</h4>
+                            <p id="nullHypothesis" style="line-height: 1.8; margin-top: 10px;"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejemplos Completos -->
+                <div class="section">
+                    <h2>📝 Ejemplos Completos de Proyectos de Investigación</h2>
+
+                    <div class="scrum-example">
+                        <h4>Proyecto 1: Optimización de Sprints</h4>
+                        <p><strong>Pregunta:</strong> ¿Cómo afecta la duración de los sprints a la calidad del código?</p>
+                        <p><strong>Método:</strong> Cuantitativo experimental</p>
+                        <p><strong>Hipótesis (H1):</strong> Sprints de 2 semanas producen código con 25% menos defectos 
+                        que sprints de 4 semanas en proyectos de desarrollo web.</p>
+                        <p><strong>Hipótesis Nula (H0):</strong> La duración de los sprints no afecta la cantidad de 
+                        defectos en el código.</p>
+                        <p><strong>Cómo probarla:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Ejecutar 6 sprints de 2 semanas y 6 de 4 semanas</li>
+                            <li>Medir defectos por story point entregado</li>
+                            <li>Analizar con herramientas como SonarQube</li>
+                            <li>Comparar estadísticamente los resultados</li>
+                        </ul>
+                    </div>
+
+                    <div class="scrum-example">
+                        <h4>Proyecto 2: Pair Programming</h4>
+                        <p><strong>Pregunta:</strong> ¿Cómo perciben los desarrolladores junior la práctica de pair programming?</p>
+                        <p><strong>Método:</strong> Cualitativo fenomenológico</p>
+                        <p><strong>Hipótesis:</strong> Los desarrolladores junior perciben el pair programming como una 
+                        práctica valiosa que acelera su curva de aprendizaje pero genera ansiedad inicial.</p>
+                        <p><strong>Cómo probarla:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li>Entrevistas semi-estructuradas con 10 desarrolladores junior</li>
+                            <li>Observación de sesiones de pair programming</li>
+                            <li>Análisis temático de las experiencias</li>
+                            <li>Identificación de patrones emocionales y de aprendizaje</li>
+                        </ul>
+                    </div>
+
+                    <div class="scrum-example">
+                        <h4>Proyecto 3: Retrospectivas Efectivas</h4>
+                        <p><strong>Pregunta:</strong> ¿Qué características hacen que una retrospectiva sea efectiva?</p>
+                        <p><strong>Método:</strong> Mixto secuencial</p>
+                        <p><strong>Hipótesis Cuantitativa:</strong> Retrospectivas con más de 5 acciones de mejora 
+                        tienen una tasa de implementación menor al 40%.</p>
+                        <p><strong>Hipótesis Cualitativa:</strong> La participación activa de todos los miembros está 
+                        relacionada con un ambiente psicológicamente seguro.</p>
+                        <p><strong>Cómo probarla:</strong></p>
+                        <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                            <li><strong>Fase 1 (Cuantitativa):</strong> Analizar 50 retrospectivas, contar acciones 
+                            propuestas vs implementadas</li>
+                            <li><strong>Fase 2 (Cualitativa):</strong> Entrevistar equipos con alta y baja efectividad 
+                            para comprender factores subyacentes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Ejercicio Práctico -->
+                <div class="section">
+                    <div class="exercise-box">
+                        <h3>🎯 Ejercicio Práctico: Formula tu Hipótesis</h3>
+                        <p style="margin-bottom: 20px;">Basándote en el problema que identificaste en módulos anteriores, 
+                        contesta las siguientes preguntas:</p>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>Pregunta 1: ¿Qué método usarás?</h4>
+                            <div id="methodQuestion">
+                                <div class="quiz-option" onclick="checkMethod(this, 'cuantitativo')">
+                                    📊 Cuantitativo - Mediré variables numéricas
+                                </div>
+                                <div class="quiz-option" onclick="checkMethod(this, 'cualitativo')">
+                                    💬 Cualitativo - Exploraré experiencias y percepciones
+                                </div>
+                                <div class="quiz-option" onclick="checkMethod(this, 'mixto')">
+                                    🔄 Mixto - Combinaré ambos enfoques
+                                </div>
+                            </div>
+                            <div id="methodFeedback" style="display: none; margin-top: 15px; padding: 15px; background: #e7f3ff; border-radius: 8px;"></div>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>Pregunta 2: Identifica las Variables</h4>
+                            <p style="margin: 10px 0;">Para tu proyecto de investigación:</p>
+                            <textarea class="hypothesis-input" id="exerciseVariables" rows="4" 
+                                    placeholder="Variable Independiente (lo que vas a cambiar o implementar):&#10;&#10;Variable Dependiente (lo que esperas que cambie como resultado):"></textarea>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>Pregunta 3: Formula tu Hipótesis</h4>
+                            <textarea class="hypothesis-input" id="exerciseHypothesis" rows="5" 
+                                    placeholder="Escribe tu hipótesis de investigación aquí...&#10;&#10;Recuerda: Debe ser clara, comprobable y establecer una relación entre variables."></textarea>
+                            
+                            <button class="btn" onclick="validateHypothesis()" style="margin-top: 15px;">
+                                ✅ Validar mi Hipótesis
+                            </button>
+                            
+                            <div id="validationResult" style="display: none; margin-top: 15px;"></div>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>Pregunta 4: ¿Cómo la probarás?</h4>
+                            <textarea class="hypothesis-input" id="exerciseMethod" rows="6" 
+                                    placeholder="Describe brevemente:&#10;1. ¿Qué datos necesitas recopilar?&#10;2. ¿Cómo los obtendrás?&#10;3. ¿Durante cuánto tiempo?&#10;4. ¿Qué herramientas usarás?"></textarea>
+                            
+                            <button class="btn btn-secondary" onclick="saveProgress()" style="margin-top: 15px;">
+                                💾 Guardar mi Ejercicio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz de Evaluación -->
+                <div class="section">
+                    <div class="exercise-box">
+                        <h3>📝 Quiz de Evaluación del Módulo</h3>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>1. ¿Cuál método es más apropiado para medir el impacto de las daily scrums en la velocidad del equipo?</h4>
+                            <div class="quiz-option" onclick="checkQuiz(this, 1, false)">
+                                A) Cualitativo - porque involucra personas
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 1, true)">
+                                B) Cuantitativo - porque se mide velocity con números
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 1, false)">
+                                C) No se puede investigar esto
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 1, false)">
+                                D) Cualitativo - para entender opiniones del equipo
+                            </div>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>2. Identifica la hipótesis mejor formulada:</h4>
+                            <div class="quiz-option" onclick="checkQuiz(this, 2, false)">
+                                A) Scrum es mejor que otras metodologías
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 2, true)">
+                                B) La implementación de TDD reduce los bugs en producción en un 35% en proyectos web
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 2, false)">
+                                C) Los desarrolladores prefieren trabajar en equipo
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 2, false)">
+                                D) Investigar sobre retrospectivas es importante
+                            </div>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>3. ¿Qué caracteriza a un método mixto?</h4>
+                            <div class="quiz-option" onclick="checkQuiz(this, 3, false)">
+                                A) Solo usa encuestas y entrevistas
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 3, false)">
+                                B) Es más fácil que los demás métodos
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 3, true)">
+                                C) Combina datos numéricos con información descriptiva
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 3, false)">
+                                D) Solo se usa en investigaciones complejas
+                            </div>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>4. La hipótesis nula (H0) establece que:</h4>
+                            <div class="quiz-option" onclick="checkQuiz(this, 4, true)">
+                                A) No existe relación o efecto entre las variables
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 4, false)">
+                                B) La hipótesis está mal formulada
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 4, false)">
+                                C) Existe una relación positiva
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 4, false)">
+                                D) Se debe rechazar la investigación
+                            </div>
+                        </div>
+
+                        <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                            <h4>5. Para investigar "¿Por qué los equipos resisten adoptar Scrum?", el mejor método sería:</h4>
+                            <div class="quiz-option" onclick="checkQuiz(this, 5, false)">
+                                A) Cuantitativo - contar cuántos equipos resisten
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 5, true)">
+                                B) Cualitativo - explorar razones, percepciones y experiencias
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 5, false)">
+                                C) Experimental - probar diferentes implementaciones
+                            </div>
+                            <div class="quiz-option" onclick="checkQuiz(this, 5, false)">
+                                D) No se puede investigar resistencia al cambio
+                            </div>
+                        </div>
+
+                        <div id="quizScore" style="display: none; background: #d4edda; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
+                            <h3>🎉 Resultados del Quiz</h3>
+                            <p id="scoreText" style="font-size: 1.5em; margin: 15px 0;"></p>
+                            <p id="scoreFeedback" style="line-height: 1.8;"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recursos Adicionales -->
+                <div class="section">
+                    <h2>📚 Recursos y Herramientas Recomendadas</h2>
+                    
+                    <div class="method-grid">
+                        <div class="method-card">
+                            <h4>📊 Para Investigación Cuantitativa</h4>
+                            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                                <li>Jira/Azure DevOps: Métricas de Scrum</li>
+                                <li>SonarQube: Calidad de código</li>
+                                <li>Google Forms: Encuestas</li>
+                                <li>Excel/Google Sheets: Análisis básico</li>
+                                <li>SPSS/R: Análisis estadístico avanzado</li>
+                            </ul>
+                        </div>
+
+                        <div class="method-card">
+                            <h4>💬 Para Investigación Cualitativa</h4>
+                            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                                <li>Zoom/Teams: Entrevistas remotas</li>
+                                <li>Miro/Mural: Análisis colaborativo</li>
+                                <li>Notion/OneNote: Notas de campo</li>
+                                <li>Atlas.ti/NVivo: Análisis cualitativo</li>
+                                <li>Grabadoras de audio con transcripción</li>
+                            </ul>
+                        </div>
+
+                        <div class="method-card">
+                            <h4>📖 Referencias Bibliográficas</h4>
+                            <ul style="margin: 10px 0 10px 20px; line-height: 1.8;">
+                                <li>Google Scholar: Artículos académicos</li>
+                                <li>ResearchGate: Investigaciones recientes</li>
+                                <li>Scrum.org: Guías oficiales</li>
+                                <li>IEEE Xplore: Ingeniería de software</li>
+                                <li>ScienceDirect: Estudios científicos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checklist Final -->
+                <div class="section">
+                    <h2>✅ Checklist: ¿Estás listo para el Módulo 6?</h2>
+                    
+                    <div class="card">
+                        <div style="line-height: 2.5;">
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check1" onchange="updateProgress()"> 
+                                Comprendo las diferencias entre métodos cuantitativo, cualitativo y mixto
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check2" onchange="updateProgress()"> 
+                                Puedo identificar qué método es apropiado para diferentes tipos de investigación
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check3" onchange="updateProgress()"> 
+                                Sé qué es una hipótesis y cómo formularla correctamente
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check4" onchange="updateProgress()"> 
+                                Conozco los diferentes tipos de hipótesis (descriptiva, correlacional, causal, nula)
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check5" onchange="updateProgress()"> 
+                                He formulado la hipótesis para mi proyecto de investigación
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check6" onchange="updateProgress()"> 
+                                Tengo claro cómo probaré mi hipótesis con datos reales
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check7" onchange="updateProgress()"> 
+                                Completé el ejercicio práctico del módulo
+                            </label>
+                            <label style="display: block; cursor: pointer;">
+                                <input type="checkbox" id="check8" onchange="updateProgress()"> 
+                                Aprobé el quiz de evaluación (al menos 4/5 correctas)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen del Módulo -->
+                <div class="section">
+                    <h2>🎓 Resumen del Módulo 5</h2>
+                    
+                    <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <h3 style="color: white; border-color: white;">Lo que aprendiste hoy:</h3>
+                        <ul style="margin: 15px 0 15px 20px; line-height: 2;">
+                            <li><strong>Métodos de Investigación:</strong> Cuantitativo (números), Cualitativo (descripciones), Mixto (combinación)</li>
+                            <li><strong>Selección del Método:</strong> Depende de tu pregunta de investigación y objetivos</li>
+                            <li><strong>Hipótesis:</strong> Suposición fundamentada que guía tu investigación</li>
+                            <li><strong>Tipos de Hipótesis:</strong> Descriptiva, correlacional, causal, nula y alternativa</li>
+                            <li><strong>Aplicación a Scrum:</strong> Cómo investigar aspectos de metodologías ágiles</li>
+                            <li><strong>Comprobación:</strong> Toda hipótesis debe poder probarse con datos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Conexión con próximo módulo -->
+                <div class="section">
+                    <div class="tip-box">
+                        <h4>🔜 Próximo Paso: Módulo 6</h4>
+                        <p style="line-height: 1.8;">
+                            En el <strong>Módulo 6: Técnicas de Recolección de Información – Universo y Muestra</strong>, 
+                            aprenderás cómo obtener los datos necesarios para probar tu hipótesis. Descubrirás técnicas 
+                            como encuestas, entrevistas, observación y análisis documental, además de cómo seleccionar 
+                            una muestra representativa para tu investigación.
+                        </p>
+                        <p style="margin-top: 15px; font-weight: bold;">
+                            ¡Ya tienes tu método y tu hipótesis, ahora aprenderás cómo recopilar los datos! 🎯
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="nav-buttons">
+                <button class="nav-btn" id="antBtn" onclick="irModuloAnterior()">4️⃣ Módulo 4: Objetivos y alcance</button>
+                <span class="section-counter">Módulo 5 de 8</span>
+                <button class="nav-btn" id="nextBtn" onclick="completeModule()">6️⃣ Módulo 6: Recolección de datos</button>
+            </div>
+        </div>
+        <script src="js/mod5.js"></script>
+    </body>
+</html>
