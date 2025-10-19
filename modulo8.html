@@ -1,1155 +1,518 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 8: Proyecto Final Integrador</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #ffd700;
-            color: #333;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-top: 15px;
-            font-size: 1.1em;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .intro-section {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .intro-section h2 {
-            margin-bottom: 15px;
-            font-size: 2em;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-            border-left: 5px solid #667eea;
-            padding-left: 15px;
-        }
-
-        .section h3 {
-            color: #764ba2;
-            margin: 20px 0 15px 0;
-            font-size: 1.4em;
-        }
-
-        .project-steps {
-            display: grid;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .step-card {
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 6px solid #667eea;
-            transition: transform 0.3s;
-        }
-
-        .step-card:hover {
-            transform: translateX(10px);
-        }
-
-        .step-number {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 1.2em;
-        }
-
-        .step-title {
-            display: inline-block;
-            vertical-align: top;
-            margin-top: 8px;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #333;
-        }
-
-        .step-content {
-            margin-top: 15px;
-            padding-left: 55px;
-            color: #444;
-            line-height: 1.6;
-        }
-
-        .template-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border: 2px solid #e9ecef;
-        }
-
-        .template-item {
-            background: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .template-item h4 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        .example-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .example-box strong {
-            color: #856404;
-        }
-
-        .checklist {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .checklist ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .checklist li {
-            padding: 8px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .checklist li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #28a745;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .interactive-form {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            margin: 30px 0;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin: 10px 5px;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .progress-tracker {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .progress-bar {
-            background: #e9ecef;
-            height: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            height: 100%;
-            width: 0%;
-            transition: width 0.5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .output-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            margin-top: 30px;
-            border: 2px solid #667eea;
-            display: none;
-        }
-
-        .output-section.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tab {
-            padding: 12px 25px;
-            background: #e9ecef;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .tab.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s;
-        }
-
-        .sprint-board {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .sprint-column {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .sprint-column h4 {
-            color: #667eea;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .sprint-task {
-            background: #f8f9fa;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .tip-box {
-            background: #cfe2ff;
-            border-left: 4px solid #0d6efd;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .tip-box strong {
-            color: #084298;
-        }
-
-        .alert {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            color: #721c24;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .sprint-board {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🎓 Módulo 8: Proyecto Final Integrador</h1>
-            <p>Formulación Completa de tu Proyecto de Investigación con Scrum</p>
-            <div class="badge">🏆 PROYECTO FINAL</div>
-        </div>
-
-        <div class="content">
-            <div class="intro-section">
-                <h2>¡Felicitaciones! Has llegado al proyecto final 🎉</h2>
-                <p>Has recorrido un camino increíble aprendiendo los fundamentos de la investigación. Ahora es momento de aplicar todo lo aprendido en un proyecto real que integrará todos los módulos anteriores.</p>
-                <p style="margin-top: 15px;"><strong>Objetivo:</strong> Formular un proyecto de investigación completo aplicando la metodología Scrum, desde la identificación del problema hasta la presentación final.</p>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Módulo 8: Proyecto Final Integrador</title>
+        <link rel="stylesheet" href="css/mod8.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🎓 Módulo 8: Proyecto Final Integrador</h1>
+                <p>Formulación Completa de tu Proyecto de Investigación con Scrum</p>
+                <div class="badge">🏆 PROYECTO FINAL</div>
             </div>
+            <div class="content">
+                <div class="intro-section">
+                    <div class="inv-img">
+                        <img src="img/proy-fin.jpeg" alt="Proyecto Final">
+                    </div>                     
+                    <h2>¡Felicitaciones! Has llegado al proyecto final 🎉</h2>
+                    <p>Has recorrido un camino increíble aprendiendo los fundamentos de la investigación. Ahora es momento de aplicar todo lo aprendido en un proyecto real que integrará todos los módulos anteriores.</p>
+                    <p style="margin-top: 15px;"><strong>Objetivo:</strong> Formular un proyecto de investigación completo aplicando la metodología Scrum, desde la identificación del problema hasta la presentación final.</p>
+                </div>
 
-            <div class="section">
-                <h2>📋 Estructura del Proyecto Integrador</h2>
-                <p>Tu proyecto final debe incluir todos los componentes aprendidos en los módulos anteriores:</p>
+                <div class="section">
+                    <h2>📋 Estructura del Proyecto Integrador</h2>
+                    <div class="inv-img">
+                        <img src="img/estructura.jpeg" alt="Proyecto Final">
+                    </div>                     
+                    <p>Tu proyecto final debe incluir todos los componentes aprendidos en los módulos anteriores:</p>
 
-                <div class="project-steps">
-                    <div class="step-card">
-                        <span class="step-number">1</span>
-                        <span class="step-title">Selección del Tema y Enfoque</span>
-                        <div class="step-content">
-                            <strong>Módulos 1 y 2:</strong> Define un tema de investigación relevante para Análisis y Desarrollo de Software. Establece el enfoque (cuantitativo, cualitativo o mixto).
-                            <div class="example-box" style="margin-top: 15px;">
-                                <strong>Ejemplo:</strong> "Implementación de metodologías ágiles en equipos de desarrollo de startups tecnológicas"
+                    <div class="project-steps">
+                        <div class="step-card">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Selección del Tema y Enfoque</span>
+                            <div class="step-content">
+                                <strong>Módulos 1 y 2:</strong> Define un tema de investigación relevante para Análisis y Desarrollo de Software. Establece el enfoque (cuantitativo, cualitativo o mixto).
+                                <div class="example-box" style="margin-top: 15px;">
+                                    <strong>Ejemplo:</strong> "Implementación de metodologías ágiles en equipos de desarrollo de startups tecnológicas"
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Planteamiento del Problema</span>
+                            <div class="step-content">
+                                <strong>Módulo 3:</strong> Formula claramente el problema de investigación, la pregunta principal y las preguntas secundarias. Desarrolla una justificación sólida.
+                                <ul style="margin-top: 10px; margin-left: 20px;">
+                                    <li>Problema identificado</li>
+                                    <li>Pregunta de investigación principal</li>
+                                    <li>3-4 preguntas secundarias</li>
+                                    <li>Justificación (teórica, práctica, metodológica)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Objetivos y Alcance</span>
+                            <div class="step-content">
+                                <strong>Módulo 4:</strong> Establece objetivos SMART y define el alcance y nivel de tu investigación.
+                                <ul style="margin-top: 10px; margin-left: 20px;">
+                                    <li>Objetivo general</li>
+                                    <li>3-5 objetivos específicos</li>
+                                    <li>Alcance temporal, espacial y temático</li>
+                                    <li>Nivel de investigación (exploratorio, descriptivo, correlacional, explicativo)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <span class="step-number">4</span>
+                            <span class="step-title">Marco Metodológico</span>
+                            <div class="step-content">
+                                <strong>Módulos 5 y 6:</strong> Define el método de investigación, formula hipótesis (si aplica) y establece técnicas de recolección de datos.
+                                <ul style="margin-top: 10px; margin-left: 20px;">
+                                    <li>Método de investigación</li>
+                                    <li>Hipótesis (si corresponde)</li>
+                                    <li>Variables</li>
+                                    <li>Técnicas de recolección</li>
+                                    <li>Población y muestra</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <span class="step-number">5</span>
+                            <span class="step-title">Marco Teórico y Referencias</span>
+                            <div class="step-content">
+                                <strong>Módulo 7:</strong> Construye un marco teórico sólido con fuentes confiables y actualizadas.
+                                <ul style="margin-top: 10px; margin-left: 20px;">
+                                    <li>Mínimo 10 fuentes académicas</li>
+                                    <li>Mezcla de fuentes primarias y secundarias</li>
+                                    <li>Referencias en formato APA 7</li>
+                                    <li>Estado del arte actualizado</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="step-card">
-                        <span class="step-number">2</span>
-                        <span class="step-title">Planteamiento del Problema</span>
-                        <div class="step-content">
-                            <strong>Módulo 3:</strong> Formula claramente el problema de investigación, la pregunta principal y las preguntas secundarias. Desarrolla una justificación sólida.
-                            <ul style="margin-top: 10px; margin-left: 20px;">
-                                <li>Problema identificado</li>
-                                <li>Pregunta de investigación principal</li>
-                                <li>3-4 preguntas secundarias</li>
-                                <li>Justificación (teórica, práctica, metodológica)</li>
+                <div class="section">
+                    <h2>🚀 Implementación con Metodología Scrum</h2>
+                    <p>Organiza tu proyecto de investigación utilizando la metodología Scrum en 4 sprints semanales:</p>
+
+                    <div class="sprint-board">
+                        <div class="sprint-column">
+                            <h4>📅 Sprint 1: Fundamentos</h4>
+                            <div class="sprint-task">
+                                <strong>Días 1-2:</strong> Selección de tema y enfoque
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 3-4:</strong> Planteamiento del problema
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 5-7:</strong> Pregunta de investigación y justificación
+                            </div>
+                        </div>
+
+                        <div class="sprint-column">
+                            <h4>📅 Sprint 2: Objetivos y Diseño</h4>
+                            <div class="sprint-task">
+                                <strong>Días 8-10:</strong> Definición de objetivos
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 11-12:</strong> Alcance y nivel de investigación
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 13-14:</strong> Revisión y ajustes
+                            </div>
+                        </div>
+
+                        <div class="sprint-column">
+                            <h4>📅 Sprint 3: Metodología</h4>
+                            <div class="sprint-task">
+                                <strong>Días 15-17:</strong> Método e hipótesis
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 18-19:</strong> Técnicas y muestra
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 20-21:</strong> Instrumentos de recolección
+                            </div>
+                        </div>
+
+                        <div class="sprint-column">
+                            <h4>📅 Sprint 4: Documentación</h4>
+                            <div class="sprint-task">
+                                <strong>Días 22-24:</strong> Marco teórico y referencias
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 25-26:</strong> Integración del documento
+                            </div>
+                            <div class="sprint-task">
+                                <strong>Días 27-28:</strong> Revisión final y presentación
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>📝 Formulario Interactivo del Proyecto</h2>
+                    <p>Completa cada sección de tu proyecto de investigación:</p>
+
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('informacion-basica')">Información Básica</button>
+                        <button class="tab" onclick="showTab('problema')">Problema</button>
+                        <button class="tab" onclick="showTab('objetivos')">Objetivos</button>
+                        <button class="tab" onclick="showTab('metodologia')">Metodología</button>
+                        <button class="tab" onclick="showTab('referencias')">Referencias</button>
+                    </div>
+
+                    <div class="interactive-form">
+                        <div id="informacion-basica" class="tab-content active">
+                            <h3>📌 Información Básica del Proyecto</h3>
+                            <div class="form-group">
+                                <label>Título del Proyecto:</label>
+                                <input type="text" id="titulo" placeholder="Ej: Implementación de DevOps en equipos ágiles">
+                            </div>
+                            <div class="form-group">
+                                <label>Autor(es):</label>
+                                <input type="text" id="autores" placeholder="Nombres completos">
+                            </div>
+                            <div class="form-group">
+                                <label>Enfoque de Investigación:</label>
+                                <select id="enfoque">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="cuantitativo">Cuantitativo</option>
+                                    <option value="cualitativo">Cualitativo</option>
+                                    <option value="mixto">Mixto</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tema de Investigación:</label>
+                                <textarea id="tema" placeholder="Describe brevemente el tema general de tu investigación..."></textarea>
+                            </div>
+                        </div>
+
+                        <div id="problema" class="tab-content">
+                            <h3>🔍 Planteamiento del Problema</h3>
+                            <div class="form-group">
+                                <label>Descripción del Problema:</label>
+                                <textarea id="descripcion-problema" placeholder="Describe el problema que has identificado..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Pregunta de Investigación Principal:</label>
+                                <input type="text" id="pregunta-principal" placeholder="¿Cuál es tu pregunta principal?">
+                            </div>
+                            <div class="form-group">
+                                <label>Preguntas Secundarias (separadas por punto y coma):</label>
+                                <textarea id="preguntas-secundarias" placeholder="¿Pregunta 1?; ¿Pregunta 2?; ¿Pregunta 3?"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Justificación del Proyecto:</label>
+                                <textarea id="justificacion" placeholder="¿Por qué es importante esta investigación? (Justificación teórica, práctica y metodológica)"></textarea>
+                            </div>
+                        </div>
+
+                        <div id="objetivos" class="tab-content">
+                            <h3>🎯 Objetivos y Alcance</h3>
+                            <div class="form-group">
+                                <label>Objetivo General:</label>
+                                <textarea id="objetivo-general" placeholder="Comienza con un verbo en infinitivo (Analizar, Determinar, Evaluar...)"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Objetivos Específicos (uno por línea):</label>
+                                <textarea id="objetivos-especificos" placeholder="Objetivo 1&#10;Objetivo 2&#10;Objetivo 3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Alcance Temporal:</label>
+                                <input type="text" id="alcance-temporal" placeholder="Ej: 2024-2025">
+                            </div>
+                            <div class="form-group">
+                                <label>Alcance Espacial:</label>
+                                <input type="text" id="alcance-espacial" placeholder="Ej: Empresas de desarrollo de software en Colombia">
+                            </div>
+                            <div class="form-group">
+                                <label>Nivel de Investigación:</label>
+                                <select id="nivel">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="exploratorio">Exploratorio</option>
+                                    <option value="descriptivo">Descriptivo</option>
+                                    <option value="correlacional">Correlacional</option>
+                                    <option value="explicativo">Explicativo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="metodologia" class="tab-content">
+                            <h3>🔬 Marco Metodológico</h3>
+                            <div class="form-group">
+                                <label>Método de Investigación:</label>
+                                <select id="metodo">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="experimental">Experimental</option>
+                                    <option value="encuesta">Encuesta</option>
+                                    <option value="estudio-caso">Estudio de Caso</option>
+                                    <option value="etnografico">Etnográfico</option>
+                                    <option value="investigacion-accion">Investigación-Acción</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Hipótesis (si aplica):</label>
+                                <textarea id="hipotesis" placeholder="Plantea tu hipótesis de trabajo..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Variables Principales:</label>
+                                <textarea id="variables" placeholder="Variable independiente, dependiente, control..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Población:</label>
+                                <input type="text" id="poblacion" placeholder="Describe tu población de estudio">
+                            </div>
+                            <div class="form-group">
+                                <label>Muestra:</label>
+                                <input type="text" id="muestra" placeholder="Tamaño y tipo de muestra">
+                            </div>
+                            <div class="form-group">
+                                <label>Técnicas de Recolección:</label>
+                                <textarea id="tecnicas" placeholder="Encuestas, entrevistas, observación, análisis documental..."></textarea>
+                            </div>
+                        </div>
+
+                        <div id="referencias" class="tab-content">
+                            <h3>📚 Referencias y Marco Teórico</h3>
+                            <div class="form-group">
+                                <label>Palabras Clave (separadas por comas):</label>
+                                <input type="text" id="palabras-clave" placeholder="metodologías ágiles, scrum, desarrollo software">
+                            </div>
+                            <div class="form-group">
+                                <label>Referencias Bibliográficas (formato APA, una por línea):</label>
+                                <textarea id="referencias-bib" placeholder="Apellido, N. (Año). Título. Editorial.&#10;&#10;Agrega mínimo 10 referencias..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Resumen del Marco Teórico:</label>
+                                <textarea id="marco-teorico" placeholder="Resume los principales conceptos y teorías que sustentan tu investigación..."></textarea>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 30px;">
+                            <button class="btn" onclick="guardarProgreso()">💾 Guardar Progreso</button>
+                            <button class="btn btn-secondary" onclick="generarDocumento()">📄 Generar Documento Final</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-tracker">
+                    <h3>📊 Progreso del Proyecto</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill">0%</div>
+                    </div>
+                    <p id="progress-text">Completa todas las secciones para generar tu documento final</p>
+                </div>
+
+                <div class="output-section" id="output">
+                    <h2>📄 Documento de Investigación Generado</h2>
+                    <div id="documento-generado"></div>
+                    <button class="btn" onclick="descargarDocumento()">⬇️ Descargar Documento</button>
+                </div>
+
+                <div class="section">
+                    <h2>✅ Lista de Verificación Final</h2>
+                    <div class="checklist">
+                        <h3>Antes de entregar tu proyecto, verifica que incluya:</h3>
+                        <ul>
+                            <li>Portada con título, autor(es) y fecha</li>
+                            <li>Resumen ejecutivo (150-250 palabras)</li>
+                            <li>Introducción que contextualice el tema</li>
+                            <li>Planteamiento del problema claramente definido</li>
+                            <li>Pregunta de investigación y preguntas secundarias</li>
+                            <li>Justificación sólida (teórica, práctica, metodológica)</li>
+                            <li>Objetivo general y objetivos específicos SMART</li>
+                            <li>Alcance temporal, espacial y temático bien definido</li>
+                            <li>Marco teórico con mínimo 10 referencias actualizadas</li>
+                            <li>Metodología detallada (método, técnicas, población, muestra)</li>
+                            <li>Hipótesis (si corresponde al enfoque)</li>
+                            <li>Cronograma de actividades</li>
+                            <li>Presupuesto estimado (si aplica)</li>
+                            <li>Referencias bibliográficas en formato APA 7</li>
+                            <li>Anexos (instrumentos de recolección, si corresponde)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💡 Consejos para una Excelente Presentación</h2>
+                    
+                    <div class="tip-box">
+                        <strong>💼 Tip Profesional:</strong> Prepara una presentación de 10-15 minutos destacando los aspectos más importantes de tu proyecto. Utiliza visualizaciones y ejemplos concretos.
+                    </div>
+
+                    <div class="template-section">
+                        <h3>Estructura de Presentación Recomendada:</h3>
+                        <div class="template-item">
+                            <h4>1. Introducción (2 minutos)</h4>
+                            <p>Presenta el tema, la importancia y el contexto general de tu investigación.</p>
+                        </div>
+                        <div class="template-item">
+                            <h4>2. Problema y Justificación (3 minutos)</h4>
+                            <p>Explica el problema identificado y por qué es relevante investigarlo.</p>
+                        </div>
+                        <div class="template-item">
+                            <h4>3. Objetivos y Metodología (3 minutos)</h4>
+                            <p>Presenta tus objetivos y cómo planeas alcanzarlos.</p>
+                        </div>
+                        <div class="template-item">
+                            <h4>4. Resultados Esperados (2 minutos)</h4>
+                            <p>Describe qué esperas encontrar y el impacto potencial.</p>
+                        </div>
+                        <div class="template-item">
+                            <h4>5. Conclusiones y Q&A (5 minutos)</h4>
+                            <p>Resume los puntos clave y responde preguntas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🎯 Criterios de Evaluación</h2>
+                    <div class="template-section">
+                        <div class="template-item">
+                            <h4>📋 Claridad y Coherencia (25%)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Redacción clara y profesional</li>
+                                <li>Estructura lógica y coherente</li>
+                                <li>Conexión entre todas las partes</li>
+                            </ul>
+                        </div>
+                        <div class="template-item">
+                            <h4>🔍 Fundamentación Teórica (25%)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Marco teórico sólido y actualizado</li>
+                                <li>Referencias académicas confiables</li>
+                                <li>Citación correcta (APA 7)</li>
+                            </ul>
+                        </div>
+                        <div class="template-item">
+                            <h4>🔬 Metodología (25%)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Método apropiado al problema</li>
+                                <li>Técnicas bien definidas</li>
+                                <li>Población y muestra justificadas</li>
+                            </ul>
+                        </div>
+                        <div class="template-item">
+                            <h4>💡 Originalidad e Innovación (15%)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Propuesta innovadora</li>
+                                <li>Aporte al campo de estudio</li>
+                                <li>Perspectiva original</li>
+                            </ul>
+                        </div>
+                        <div class="template-item">
+                            <h4>📊 Presentación y Formato (10%)</h4>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Formato profesional</li>
+                                <li>Organización visual</li>
+                                <li>Elementos gráficos apropiados</li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="step-card">
-                        <span class="step-number">3</span>
-                        <span class="step-title">Objetivos y Alcance</span>
-                        <div class="step-content">
-                            <strong>Módulo 4:</strong> Establece objetivos SMART y define el alcance y nivel de tu investigación.
-                            <ul style="margin-top: 10px; margin-left: 20px;">
-                                <li>Objetivo general</li>
-                                <li>3-5 objetivos específicos</li>
-                                <li>Alcance temporal, espacial y temático</li>
-                                <li>Nivel de investigación (exploratorio, descriptivo, correlacional, explicativo)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <span class="step-number">4</span>
-                        <span class="step-title">Marco Metodológico</span>
-                        <div class="step-content">
-                            <strong>Módulos 5 y 6:</strong> Define el método de investigación, formula hipótesis (si aplica) y establece técnicas de recolección de datos.
-                            <ul style="margin-top: 10px; margin-left: 20px;">
-                                <li>Método de investigación</li>
-                                <li>Hipótesis (si corresponde)</li>
-                                <li>Variables</li>
-                                <li>Técnicas de recolección</li>
-                                <li>Población y muestra</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <span class="step-number">5</span>
-                        <span class="step-title">Marco Teórico y Referencias</span>
-                        <div class="step-content">
-                            <strong>Módulo 7:</strong> Construye un marco teórico sólido con fuentes confiables y actualizadas.
-                            <ul style="margin-top: 10px; margin-left: 20px;">
-                                <li>Mínimo 10 fuentes académicas</li>
-                                <li>Mezcla de fuentes primarias y secundarias</li>
-                                <li>Referencias en formato APA 7</li>
-                                <li>Estado del arte actualizado</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>🚀 Implementación con Metodología Scrum</h2>
-                <p>Organiza tu proyecto de investigación utilizando la metodología Scrum en 4 sprints semanales:</p>
-
-                <div class="sprint-board">
-                    <div class="sprint-column">
-                        <h4>📅 Sprint 1: Fundamentos</h4>
-                        <div class="sprint-task">
-                            <strong>Días 1-2:</strong> Selección de tema y enfoque
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 3-4:</strong> Planteamiento del problema
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 5-7:</strong> Pregunta de investigación y justificación
-                        </div>
-                    </div>
-
-                    <div class="sprint-column">
-                        <h4>📅 Sprint 2: Objetivos y Diseño</h4>
-                        <div class="sprint-task">
-                            <strong>Días 8-10:</strong> Definición de objetivos
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 11-12:</strong> Alcance y nivel de investigación
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 13-14:</strong> Revisión y ajustes
-                        </div>
-                    </div>
-
-                    <div class="sprint-column">
-                        <h4>📅 Sprint 3: Metodología</h4>
-                        <div class="sprint-task">
-                            <strong>Días 15-17:</strong> Método e hipótesis
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 18-19:</strong> Técnicas y muestra
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 20-21:</strong> Instrumentos de recolección
-                        </div>
-                    </div>
-
-                    <div class="sprint-column">
-                        <h4>📅 Sprint 4: Documentación</h4>
-                        <div class="sprint-task">
-                            <strong>Días 22-24:</strong> Marco teórico y referencias
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 25-26:</strong> Integración del documento
-                        </div>
-                        <div class="sprint-task">
-                            <strong>Días 27-28:</strong> Revisión final y presentación
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>📝 Formulario Interactivo del Proyecto</h2>
-                <p>Completa cada sección de tu proyecto de investigación:</p>
-
-                <div class="tabs">
-                    <button class="tab active" onclick="showTab('informacion-basica')">Información Básica</button>
-                    <button class="tab" onclick="showTab('problema')">Problema</button>
-                    <button class="tab" onclick="showTab('objetivos')">Objetivos</button>
-                    <button class="tab" onclick="showTab('metodologia')">Metodología</button>
-                    <button class="tab" onclick="showTab('referencias')">Referencias</button>
                 </div>
 
-                <div class="interactive-form">
-                    <div id="informacion-basica" class="tab-content active">
-                        <h3>📌 Información Básica del Proyecto</h3>
-                        <div class="form-group">
-                            <label>Título del Proyecto:</label>
-                            <input type="text" id="titulo" placeholder="Ej: Implementación de DevOps en equipos ágiles">
-                        </div>
-                        <div class="form-group">
-                            <label>Autor(es):</label>
-                            <input type="text" id="autores" placeholder="Nombres completos">
-                        </div>
-                        <div class="form-group">
-                            <label>Enfoque de Investigación:</label>
-                            <select id="enfoque">
-                                <option value="">Seleccionar...</option>
-                                <option value="cuantitativo">Cuantitativo</option>
-                                <option value="cualitativo">Cualitativo</option>
-                                <option value="mixto">Mixto</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Tema de Investigación:</label>
-                            <textarea id="tema" placeholder="Describe brevemente el tema general de tu investigación..."></textarea>
-                        </div>
+                <div class="section">
+                    <h2>🌟 Ejemplos de Proyectos Destacados</h2>
+                    
+                    <div class="example-box">
+                        <strong>Proyecto Ejemplo 1:</strong> "Análisis del Impacto de la Implementación de Scrum en la Productividad de Equipos de Desarrollo de Software en Startups Colombianas"
+                        <p style="margin-top: 10px;"><strong>Por qué destaca:</strong> Problema bien definido, metodología mixta robusta, muestra representativa de 50 equipos, resultados medibles y aplicables.</p>
                     </div>
 
-                    <div id="problema" class="tab-content">
-                        <h3>🔍 Planteamiento del Problema</h3>
-                        <div class="form-group">
-                            <label>Descripción del Problema:</label>
-                            <textarea id="descripcion-problema" placeholder="Describe el problema que has identificado..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Pregunta de Investigación Principal:</label>
-                            <input type="text" id="pregunta-principal" placeholder="¿Cuál es tu pregunta principal?">
-                        </div>
-                        <div class="form-group">
-                            <label>Preguntas Secundarias (separadas por punto y coma):</label>
-                            <textarea id="preguntas-secundarias" placeholder="¿Pregunta 1?; ¿Pregunta 2?; ¿Pregunta 3?"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Justificación del Proyecto:</label>
-                            <textarea id="justificacion" placeholder="¿Por qué es importante esta investigación? (Justificación teórica, práctica y metodológica)"></textarea>
-                        </div>
+                    <div class="example-box">
+                        <strong>Proyecto Ejemplo 2:</strong> "Factores que Influyen en la Adopción de Prácticas DevOps en Empresas de Desarrollo de Software de Tamaño Medio"
+                        <p style="margin-top: 10px;"><strong>Por qué destaca:</strong> Enfoque cualitativo profundo, entrevistas estructuradas, análisis de casos múltiples, recomendaciones prácticas concretas.</p>
                     </div>
 
-                    <div id="objetivos" class="tab-content">
-                        <h3>🎯 Objetivos y Alcance</h3>
-                        <div class="form-group">
-                            <label>Objetivo General:</label>
-                            <textarea id="objetivo-general" placeholder="Comienza con un verbo en infinitivo (Analizar, Determinar, Evaluar...)"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Objetivos Específicos (uno por línea):</label>
-                            <textarea id="objetivos-especificos" placeholder="Objetivo 1&#10;Objetivo 2&#10;Objetivo 3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Alcance Temporal:</label>
-                            <input type="text" id="alcance-temporal" placeholder="Ej: 2024-2025">
-                        </div>
-                        <div class="form-group">
-                            <label>Alcance Espacial:</label>
-                            <input type="text" id="alcance-espacial" placeholder="Ej: Empresas de desarrollo de software en Colombia">
-                        </div>
-                        <div class="form-group">
-                            <label>Nivel de Investigación:</label>
-                            <select id="nivel">
-                                <option value="">Seleccionar...</option>
-                                <option value="exploratorio">Exploratorio</option>
-                                <option value="descriptivo">Descriptivo</option>
-                                <option value="correlacional">Correlacional</option>
-                                <option value="explicativo">Explicativo</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div id="metodologia" class="tab-content">
-                        <h3>🔬 Marco Metodológico</h3>
-                        <div class="form-group">
-                            <label>Método de Investigación:</label>
-                            <select id="metodo">
-                                <option value="">Seleccionar...</option>
-                                <option value="experimental">Experimental</option>
-                                <option value="encuesta">Encuesta</option>
-                                <option value="estudio-caso">Estudio de Caso</option>
-                                <option value="etnografico">Etnográfico</option>
-                                <option value="investigacion-accion">Investigación-Acción</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Hipótesis (si aplica):</label>
-                            <textarea id="hipotesis" placeholder="Plantea tu hipótesis de trabajo..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Variables Principales:</label>
-                            <textarea id="variables" placeholder="Variable independiente, dependiente, control..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Población:</label>
-                            <input type="text" id="poblacion" placeholder="Describe tu población de estudio">
-                        </div>
-                        <div class="form-group">
-                            <label>Muestra:</label>
-                            <input type="text" id="muestra" placeholder="Tamaño y tipo de muestra">
-                        </div>
-                        <div class="form-group">
-                            <label>Técnicas de Recolección:</label>
-                            <textarea id="tecnicas" placeholder="Encuestas, entrevistas, observación, análisis documental..."></textarea>
-                        </div>
-                    </div>
-
-                    <div id="referencias" class="tab-content">
-                        <h3>📚 Referencias y Marco Teórico</h3>
-                        <div class="form-group">
-                            <label>Palabras Clave (separadas por comas):</label>
-                            <input type="text" id="palabras-clave" placeholder="metodologías ágiles, scrum, desarrollo software">
-                        </div>
-                        <div class="form-group">
-                            <label>Referencias Bibliográficas (formato APA, una por línea):</label>
-                            <textarea id="referencias-bib" placeholder="Apellido, N. (Año). Título. Editorial.&#10;&#10;Agrega mínimo 10 referencias..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Resumen del Marco Teórico:</label>
-                            <textarea id="marco-teorico" placeholder="Resume los principales conceptos y teorías que sustentan tu investigación..."></textarea>
-                        </div>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn" onclick="guardarProgreso()">💾 Guardar Progreso</button>
-                        <button class="btn btn-secondary" onclick="generarDocumento()">📄 Generar Documento Final</button>
+                    <div class="example-box">
+                        <strong>Proyecto Ejemplo 3:</strong> "Evaluación de Herramientas de Testing Automatizado en el Ciclo de Desarrollo Ágil: Un Estudio Comparativo"
+                        <p style="margin-top: 10px;"><strong>Por qué destaca:</strong> Criterios de evaluación claros, métricas cuantificables, experimentos controlados, conclusiones basadas en datos.</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="progress-tracker">
-                <h3>📊 Progreso del Proyecto</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill">0%</div>
-                </div>
-                <p id="progress-text">Completa todas las secciones para generar tu documento final</p>
-            </div>
-
-            <div class="output-section" id="output">
-                <h2>📄 Documento de Investigación Generado</h2>
-                <div id="documento-generado"></div>
-                <button class="btn" onclick="descargarDocumento()">⬇️ Descargar Documento</button>
-            </div>
-
-            <div class="section">
-                <h2>✅ Lista de Verificación Final</h2>
-                <div class="checklist">
-                    <h3>Antes de entregar tu proyecto, verifica que incluya:</h3>
-                    <ul>
-                        <li>Portada con título, autor(es) y fecha</li>
-                        <li>Resumen ejecutivo (150-250 palabras)</li>
-                        <li>Introducción que contextualice el tema</li>
-                        <li>Planteamiento del problema claramente definido</li>
-                        <li>Pregunta de investigación y preguntas secundarias</li>
-                        <li>Justificación sólida (teórica, práctica, metodológica)</li>
-                        <li>Objetivo general y objetivos específicos SMART</li>
-                        <li>Alcance temporal, espacial y temático bien definido</li>
-                        <li>Marco teórico con mínimo 10 referencias actualizadas</li>
-                        <li>Metodología detallada (método, técnicas, población, muestra)</li>
-                        <li>Hipótesis (si corresponde al enfoque)</li>
-                        <li>Cronograma de actividades</li>
-                        <li>Presupuesto estimado (si aplica)</li>
-                        <li>Referencias bibliográficas en formato APA 7</li>
-                        <li>Anexos (instrumentos de recolección, si corresponde)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>💡 Consejos para una Excelente Presentación</h2>
-                
-                <div class="tip-box">
-                    <strong>💼 Tip Profesional:</strong> Prepara una presentación de 10-15 minutos destacando los aspectos más importantes de tu proyecto. Utiliza visualizaciones y ejemplos concretos.
-                </div>
-
-                <div class="template-section">
-                    <h3>Estructura de Presentación Recomendada:</h3>
-                    <div class="template-item">
-                        <h4>1. Introducción (2 minutos)</h4>
-                        <p>Presenta el tema, la importancia y el contexto general de tu investigación.</p>
-                    </div>
-                    <div class="template-item">
-                        <h4>2. Problema y Justificación (3 minutos)</h4>
-                        <p>Explica el problema identificado y por qué es relevante investigarlo.</p>
-                    </div>
-                    <div class="template-item">
-                        <h4>3. Objetivos y Metodología (3 minutos)</h4>
-                        <p>Presenta tus objetivos y cómo planeas alcanzarlos.</p>
-                    </div>
-                    <div class="template-item">
-                        <h4>4. Resultados Esperados (2 minutos)</h4>
-                        <p>Describe qué esperas encontrar y el impacto potencial.</p>
-                    </div>
-                    <div class="template-item">
-                        <h4>5. Conclusiones y Q&A (5 minutos)</h4>
-                        <p>Resume los puntos clave y responde preguntas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>🎯 Criterios de Evaluación</h2>
-                <div class="template-section">
-                    <div class="template-item">
-                        <h4>📋 Claridad y Coherencia (25%)</h4>
+                <div class="section">
+                    <h2>⚠️ Errores Comunes a Evitar</h2>
+                    
+                    <div class="alert">
+                        <strong>❌ No hacer esto:</strong>
                         <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Redacción clara y profesional</li>
-                            <li>Estructura lógica y coherente</li>
-                            <li>Conexión entre todas las partes</li>
-                        </ul>
-                    </div>
-                    <div class="template-item">
-                        <h4>🔍 Fundamentación Teórica (25%)</h4>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Marco teórico sólido y actualizado</li>
-                            <li>Referencias académicas confiables</li>
-                            <li>Citación correcta (APA 7)</li>
-                        </ul>
-                    </div>
-                    <div class="template-item">
-                        <h4>🔬 Metodología (25%)</h4>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Método apropiado al problema</li>
-                            <li>Técnicas bien definidas</li>
-                            <li>Población y muestra justificadas</li>
-                        </ul>
-                    </div>
-                    <div class="template-item">
-                        <h4>💡 Originalidad e Innovación (15%)</h4>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Propuesta innovadora</li>
-                            <li>Aporte al campo de estudio</li>
-                            <li>Perspectiva original</li>
-                        </ul>
-                    </div>
-                    <div class="template-item">
-                        <h4>📊 Presentación y Formato (10%)</h4>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>Formato profesional</li>
-                            <li>Organización visual</li>
-                            <li>Elementos gráficos apropiados</li>
+                            <li><strong>Problema muy amplio:</strong> "Estudiar el desarrollo de software" es demasiado general</li>
+                            <li><strong>Objetivos vagos:</strong> "Mejorar algo" no es medible ni específico</li>
+                            <li><strong>Metodología sin detalle:</strong> Solo decir "haré encuestas" no es suficiente</li>
+                            <li><strong>Referencias desactualizadas:</strong> Usar solo fuentes de más de 10 años</li>
+                            <li><strong>Copiar y pegar:</strong> El plagio académico tiene consecuencias graves</li>
+                            <li><strong>Alcance irrealista:</strong> Prometer resultados imposibles de lograr</li>
+                            <li><strong>Falta de coherencia:</strong> Objetivos que no responden al problema</li>
                         </ul>
                     </div>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>🌟 Ejemplos de Proyectos Destacados</h2>
-                
-                <div class="example-box">
-                    <strong>Proyecto Ejemplo 1:</strong> "Análisis del Impacto de la Implementación de Scrum en la Productividad de Equipos de Desarrollo de Software en Startups Colombianas"
-                    <p style="margin-top: 10px;"><strong>Por qué destaca:</strong> Problema bien definido, metodología mixta robusta, muestra representativa de 50 equipos, resultados medibles y aplicables.</p>
-                </div>
-
-                <div class="example-box">
-                    <strong>Proyecto Ejemplo 2:</strong> "Factores que Influyen en la Adopción de Prácticas DevOps en Empresas de Desarrollo de Software de Tamaño Medio"
-                    <p style="margin-top: 10px;"><strong>Por qué destaca:</strong> Enfoque cualitativo profundo, entrevistas estructuradas, análisis de casos múltiples, recomendaciones prácticas concretas.</p>
-                </div>
-
-                <div class="example-box">
-                    <strong>Proyecto Ejemplo 3:</strong> "Evaluación de Herramientas de Testing Automatizado en el Ciclo de Desarrollo Ágil: Un Estudio Comparativo"
-                    <p style="margin-top: 10px;"><strong>Por qué destaca:</strong> Criterios de evaluación claros, métricas cuantificables, experimentos controlados, conclusiones basadas en datos.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>⚠️ Errores Comunes a Evitar</h2>
-                
-                <div class="alert">
-                    <strong>❌ No hacer esto:</strong>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Problema muy amplio:</strong> "Estudiar el desarrollo de software" es demasiado general</li>
-                        <li><strong>Objetivos vagos:</strong> "Mejorar algo" no es medible ni específico</li>
-                        <li><strong>Metodología sin detalle:</strong> Solo decir "haré encuestas" no es suficiente</li>
-                        <li><strong>Referencias desactualizadas:</strong> Usar solo fuentes de más de 10 años</li>
-                        <li><strong>Copiar y pegar:</strong> El plagio académico tiene consecuencias graves</li>
-                        <li><strong>Alcance irrealista:</strong> Prometer resultados imposibles de lograr</li>
-                        <li><strong>Falta de coherencia:</strong> Objetivos que no responden al problema</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>📚 Recursos Adicionales</h2>
-                <div class="template-section">
-                    <h3>Recursos Recomendados para tu Proyecto:</h3>
-                    <div class="template-item">
-                        <h4>📖 Bases de Datos Académicas</h4>
-                        <p>• Google Scholar (scholar.google.com)</p>
-                        <p>• IEEE Xplore (ieeexplore.ieee.org)</p>
-                        <p>• ACM Digital Library (dl.acm.org)</p>
-                        <p>• Scielo (scielo.org)</p>
-                    </div>
-                    <div class="template-item">
-                        <h4>🛠️ Herramientas de Gestión</h4>
-                        <p>• Trello o Jira para gestión Scrum</p>
-                        <p>• Mendeley o Zotero para referencias</p>
-                        <p>• Google Forms para encuestas</p>
-                        <p>• Draw.io para diagramas</p>
-                    </div>
-                    <div class="template-item">
-                        <h4>📝 Guías de Estilo</h4>
-                        <p>• Manual APA 7ª edición</p>
-                        <p>• Purdue OWL (owl.purdue.edu)</p>
-                        <p>• Citethisforme.com</p>
+                <div class="section">
+                    <h2>📚 Recursos Adicionales</h2>
+                    <div class="template-section">
+                        <h3>Recursos Recomendados para tu Proyecto:</h3>
+                        <div class="template-item">
+                            <h4>📖 Bases de Datos Académicas</h4>
+                            <p>• Google Scholar (scholar.google.com)</p>
+                            <p>• IEEE Xplore (ieeexplore.ieee.org)</p>
+                            <p>• ACM Digital Library (dl.acm.org)</p>
+                            <p>• Scielo (scielo.org)</p>
+                        </div>
+                        <div class="template-item">
+                            <h4>🛠️ Herramientas de Gestión</h4>
+                            <p>• Trello o Jira para gestión Scrum</p>
+                            <p>• Mendeley o Zotero para referencias</p>
+                            <p>• Google Forms para encuestas</p>
+                            <p>• Draw.io para diagramas</p>
+                        </div>
+                        <div class="template-item">
+                            <h4>📝 Guías de Estilo</h4>
+                            <p>• Manual APA 7ª edición</p>
+                            <p>• Purdue OWL (owl.purdue.edu)</p>
+                            <p>• Citethisforme.com</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>🎓 Reflexión Final</h2>
-                <div class="intro-section">
-                    <h3>¡Has completado un recorrido extraordinario! 🌟</h3>
-                    <p style="margin-top: 15px;">A lo largo de estos 8 módulos has adquirido las competencias fundamentales para realizar investigación de calidad en el campo del desarrollo de software. Ahora cuentas con las herramientas para:</p>
-                    <ul style="margin-left: 30px; margin-top: 15px; line-height: 1.8;">
-                        <li>✓ Identificar problemas relevantes en tu campo profesional</li>
-                        <li>✓ Formular preguntas de investigación pertinentes</li>
-                        <li>✓ Diseñar metodologías apropiadas</li>
-                        <li>✓ Recolectar y analizar datos de manera sistemática</li>
-                        <li>✓ Fundamentar tus propuestas con evidencia científica</li>
-                        <li>✓ Gestionar proyectos con metodología Scrum</li>
-                    </ul>
-                    <p style="margin-top: 20px;"><strong>Recuerda:</strong> La investigación es un proceso iterativo. No temas revisar y mejorar tu propuesta conforme avanzas. ¡Cada versión te acerca más a un proyecto excepcional!</p>
+                <div class="section">
+                    <h2>🎓 Reflexión Final</h2>
+                    <div class="inv-img">
+                        <img src="img/reflexion.jpeg" alt="Proyecto Final">
+                    </div>                     
+                    <div class="intro-section">
+                        <h3>¡Has completado un recorrido extraordinario! 🌟</h3>
+                        <p style="margin-top: 15px;">A lo largo de estos 8 módulos has adquirido las competencias fundamentales para realizar investigación de calidad en el campo del desarrollo de software. Ahora cuentas con las herramientas para:</p>
+                        <ul style="margin-left: 30px; margin-top: 15px; line-height: 1.8;">
+                            <li>✓ Identificar problemas relevantes en tu campo profesional</li>
+                            <li>✓ Formular preguntas de investigación pertinentes</li>
+                            <li>✓ Diseñar metodologías apropiadas</li>
+                            <li>✓ Recolectar y analizar datos de manera sistemática</li>
+                            <li>✓ Fundamentar tus propuestas con evidencia científica</li>
+                            <li>✓ Gestionar proyectos con metodología Scrum</li>
+                        </ul>
+                        <p style="margin-top: 20px;"><strong>Recuerda:</strong> La investigación es un proceso iterativo. No temas revisar y mejorar tu propuesta conforme avanzas. ¡Cada versión te acerca más a un proyecto excepcional!</p>
+                    </div>
                 </div>
-            </div>
 
-            <div style="text-align: center; margin: 40px 0;">
-                <button class="btn" onclick="iniciarProyecto()">🚀 Iniciar Mi Proyecto</button>
-                <button class="btn btn-secondary" onclick="verEjemplosCompletos()">👀 Ver Ejemplos Completos</button>
-            </div>
+                <div style="text-align: center; margin: 40px 0;">
+                    <button class="btn" onclick="iniciarProyecto()">🚀 Iniciar Mi Proyecto</button>
+                    <button class="btn btn-secondary" onclick="verEjemplosCompletos()">👀 Ver Ejemplos Completos</button>
+                </div>
 
+            </div>
         </div>
-    </div>
-
-    <script>
-        let datosProyecto = {};
-
-        function showTab(tabId) {
-            const tabs = document.querySelectorAll('.tab');
-            const contents = document.querySelectorAll('.tab-content');
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
-            contents.forEach(content => content.classList.remove('active'));
-            
-            event.target.classList.add('active');
-            document.getElementById(tabId).classList.add('active');
-        }
-
-        function calcularProgreso() {
-            const campos = [
-                'titulo', 'autores', 'enfoque', 'tema',
-                'descripcion-problema', 'pregunta-principal', 'preguntas-secundarias', 'justificacion',
-                'objetivo-general', 'objetivos-especificos', 'alcance-temporal', 'alcance-espacial', 'nivel',
-                'metodo', 'poblacion', 'muestra', 'tecnicas',
-                'palabras-clave', 'referencias-bib', 'marco-teorico'
-            ];
-            
-            let completados = 0;
-            campos.forEach(campo => {
-                const elemento = document.getElementById(campo);
-                if (elemento && elemento.value.trim() !== '') {
-                    completados++;
-                }
-            });
-            
-            const porcentaje = Math.round((completados / campos.length) * 100);
-            const progressFill = document.getElementById('progress-fill');
-            const progressText = document.getElementById('progress-text');
-            
-            progressFill.style.width = porcentaje + '%';
-            progressFill.textContent = porcentaje + '%';
-            
-            if (porcentaje < 30) {
-                progressText.textContent = '¡Comienza a completar las secciones de tu proyecto!';
-            } else if (porcentaje < 70) {
-                progressText.textContent = '¡Buen avance! Continúa completando las secciones restantes';
-            } else if (porcentaje < 100) {
-                progressText.textContent = '¡Casi terminas! Solo faltan algunos detalles';
-            } else {
-                progressText.textContent = '¡Excelente! Tu proyecto está completo. Genera el documento final';
-            }
-            
-            return porcentaje;
-        }
-
-        function guardarProgreso() {
-            const campos = document.querySelectorAll('input, textarea, select');
-            campos.forEach(campo => {
-                datosProyecto[campo.id] = campo.value;
-            });
-            
-            const progreso = calcularProgreso();
-            
-            alert(`✅ Progreso guardado exitosamente!\n\nCompletado: ${progreso}%\n\nTus datos están guardados en esta sesión.`);
-        }
-
-        function generarDocumento() {
-            const progreso = calcularProgreso();
-            
-            if (progreso < 70) {
-                alert('⚠️ Debes completar al menos el 70% del proyecto antes de generar el documento final.\n\nProgreso actual: ' + progreso + '%');
-                return;
-            }
-            
-            const titulo = document.getElementById('titulo').value;
-            const autores = document.getElementById('autores').value;
-            const enfoque = document.getElementById('enfoque').value;
-            const tema = document.getElementById('tema').value;
-            const problema = document.getElementById('descripcion-problema').value;
-            const preguntaPrincipal = document.getElementById('pregunta-principal').value;
-            const preguntasSecundarias = document.getElementById('preguntas-secundarias').value;
-            const justificacion = document.getElementById('justificacion').value;
-            const objetivoGeneral = document.getElementById('objetivo-general').value;
-            const objetivosEspecificos = document.getElementById('objetivos-especificos').value;
-            const alcanceTemporal = document.getElementById('alcance-temporal').value;
-            const alcanceEspacial = document.getElementById('alcance-espacial').value;
-            const nivel = document.getElementById('nivel').value;
-            const metodo = document.getElementById('metodo').value;
-            const hipotesis = document.getElementById('hipotesis').value;
-            const variables = document.getElementById('variables').value;
-            const poblacion = document.getElementById('poblacion').value;
-            const muestra = document.getElementById('muestra').value;
-            const tecnicas = document.getElementById('tecnicas').value;
-            const palabrasClave = document.getElementById('palabras-clave').value;
-            const referencias = document.getElementById('referencias-bib').value;
-            const marcoTeorico = document.getElementById('marco-teorico').value;
-            
-            const documento = `
-                <div style="padding: 30px; background: white; border-radius: 10px;">
-                    <div style="text-align: center; border-bottom: 3px solid #667eea; padding-bottom: 20px; margin-bottom: 30px;">
-                        <h1 style="color: #667eea; margin-bottom: 10px;">${titulo || '[Título del Proyecto]'}</h1>
-                        <p style="font-size: 1.1em; color: #666;"><strong>Autor(es):</strong> ${autores || '[Autor(es)]'}</p>
-                        <p style="color: #888;">Fecha: ${new Date().toLocaleDateString()}</p>
-                    </div>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">1. INFORMACIÓN GENERAL</h2>
-                        <p style="margin: 15px 0;"><strong>Enfoque de Investigación:</strong> ${enfoque || '[No especificado]'}</p>
-                        <p style="margin: 15px 0;"><strong>Nivel de Investigación:</strong> ${nivel || '[No especificado]'}</p>
-                        <p style="margin: 15px 0;"><strong>Palabras Clave:</strong> ${palabrasClave || '[No especificadas]'}</p>
-                        <p style="margin: 15px 0; line-height: 1.8;"><strong>Tema:</strong> ${tema || '[Tema no especificado]'}</p>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">2. PLANTEAMIENTO DEL PROBLEMA</h2>
-                        <h3 style="color: #764ba2; margin-top: 20px;">2.1 Descripción del Problema</h3>
-                        <p style="text-align: justify; line-height: 1.8; margin: 15px 0;">${problema || '[Descripción del problema pendiente]'}</p>
-                        
-                        <h3 style="color: #764ba2; margin-top: 20px;">2.2 Pregunta de Investigación</h3>
-                        <p style="margin: 15px 0;"><strong>Pregunta Principal:</strong> ${preguntaPrincipal || '[Pregunta principal pendiente]'}</p>
-                        <p style="margin: 15px 0;"><strong>Preguntas Secundarias:</strong></p>
-                        <ul style="margin-left: 30px; line-height: 1.8;">
-                            ${preguntasSecundarias ? preguntasSecundarias.split(';').map(p => `<li>${p.trim()}</li>`).join('') : '<li>[Preguntas secundarias pendientes]</li>'}
-                        </ul>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">3. JUSTIFICACIÓN</h2>
-                        <p style="text-align: justify; line-height: 1.8; margin: 15px 0;">${justificacion || '[Justificación pendiente]'}</p>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">4. OBJETIVOS</h2>
-                        <h3 style="color: #764ba2; margin-top: 20px;">4.1 Objetivo General</h3>
-                        <p style="margin: 15px 0; line-height: 1.8;">${objetivoGeneral || '[Objetivo general pendiente]'}</p>
-                        
-                        <h3 style="color: #764ba2; margin-top: 20px;">4.2 Objetivos Específicos</h3>
-                        <ul style="margin-left: 30px; line-height: 1.8;">
-                            ${objetivosEspecificos ? objetivosEspecificos.split('\n').filter(o => o.trim()).map(o => `<li>${o.trim()}</li>`).join('') : '<li>[Objetivos específicos pendientes]</li>'}
-                        </ul>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">5. ALCANCE</h2>
-                        <p style="margin: 15px 0;"><strong>Alcance Temporal:</strong> ${alcanceTemporal || '[No especificado]'}</p>
-                        <p style="margin: 15px 0;"><strong>Alcance Espacial:</strong> ${alcanceEspacial || '[No especificado]'}</p>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">6. MARCO TEÓRICO</h2>
-                        <p style="text-align: justify; line-height: 1.8; margin: 15px 0;">${marcoTeorico || '[Marco teórico pendiente]'}</p>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">7. METODOLOGÍA</h2>
-                        <p style="margin: 15px 0;"><strong>Método de Investigación:</strong> ${metodo || '[No especificado]'}</p>
-                        ${hipotesis ? `<p style="margin: 15px 0;"><strong>Hipótesis:</strong> ${hipotesis}</p>` : ''}
-                        ${variables ? `<p style="margin: 15px 0;"><strong>Variables:</strong> ${variables}</p>` : ''}
-                        <p style="margin: 15px 0;"><strong>Población:</strong> ${poblacion || '[No especificada]'}</p>
-                        <p style="margin: 15px 0;"><strong>Muestra:</strong> ${muestra || '[No especificada]'}</p>
-                        <p style="margin: 15px 0; line-height: 1.8;"><strong>Técnicas de Recolección:</strong> ${tecnicas || '[No especificadas]'}</p>
-                    </section>
-                    
-                    <section style="margin-bottom: 30px;">
-                        <h2 style="color: #667eea; border-left: 5px solid #667eea; padding-left: 15px;">8. REFERENCIAS BIBLIOGRÁFICAS</h2>
-                        <div style="margin: 15px 0; line-height: 2;">
-                            ${referencias ? referencias.split('\n').filter(r => r.trim()).map(r => `<p style="margin-left: 20px; text-indent: -20px;">${r.trim()}</p>`).join('') : '<p>[Referencias pendientes]</p>'}
-                        </div>
-                    </section>
-                    
-                    <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #e9ecef;">
-                        <p style="color: #888; font-style: italic;">Documento generado el ${new Date().toLocaleDateString()} - Curso de Fundamentos de Investigación</p>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('documento-generado').innerHTML = documento;
-            document.getElementById('output').classList.add('active');
-            document.getElementById('output').scrollIntoView({ behavior: 'smooth' });
-            
-            alert('📄 ¡Documento generado exitosamente!\n\nRevisa el documento completo abajo y descárgalo cuando estés listo.');
-        }
-
-        function descargarDocumento() {
-            const contenido = document.getElementById('documento-generado').innerHTML;
-            const html = `
-                <!DOCTYPE html>
-                <html lang="es">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Proyecto de Investigación</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-                        h1 { color: #667eea; }
-                        h2 { color: #667eea; margin-top: 30px; }
-                        h3 { color: #764ba2; }
-                        p { line-height: 1.8; text-align: justify; }
-                    </style>
-                </head>
-                <body>${contenido}</body>
-                </html>
-            `;
-            
-            const blob = new Blob([html], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'proyecto_investigacion.html';
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function iniciarProyecto() {
-            document.querySelector('.tabs .tab').click();
-            document.getElementById('titulo').focus();
-            alert('🚀 ¡Excelente decisión!\n\nComienza completando la información básica de tu proyecto en la primera pestaña.\n\nRecuerda guardar tu progreso regularmente.');
-        }
-
-        function verEjemplosCompletos() {
-            alert('📚 Ejemplos Completos de Proyectos\n\n' +
-                  'Los ejemplos mostrados en esta página son proyectos reales que han sido destacados por su calidad.\n\n' +
-                  'Observa cómo:\n' +
-                  '• Definen claramente el problema\n' +
-                  '• Plantean objetivos medibles\n' +
-                  '• Justifican la investigación\n' +
-                  '• Estructuran la metodología\n\n' +
-                  'Usa estos ejemplos como inspiración, pero recuerda que tu proyecto debe ser original y responder a tu contexto específico.');
-        }
-
-        document.querySelectorAll('input, textarea, select').forEach(elemento => {
-            elemento.addEventListener('input', calcularProgreso);
-        });
-
-        window.addEventListener('load', () => {
-            calcularProgreso();
-            
-            setTimeout(() => {
-                alert('🎓 ¡Bienvenido al Proyecto Final Integrador!\n\n' +
-                      'Este es el último módulo donde aplicarás todo lo aprendido.\n\n' +
-                      '✅ Revisa cada sección con cuidado\n' +
-                      '✅ Completa el formulario interactivo\n' +
-                      '✅ Sigue la metodología Scrum\n' +
-                      '✅ Genera tu documento final\n\n' +
-                      '¡Mucho éxito en tu proyecto!');
-            }, 1000);
-        });
-    </script>
-</body>
+        <script src="js/mod8.js"></script>
+    </body>
 </html>

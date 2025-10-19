@@ -1,1061 +1,510 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo 7: Fuentes de Información</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .progress-bar {
-            background: rgba(255,255,255,0.3);
-            height: 8px;
-            border-radius: 10px;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: #ffd700;
-            height: 100%;
-            width: 87.5%;
-            border-radius: 10px;
-            transition: width 0.5s ease;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-        .section:nth-child(4) { animation-delay: 0.4s; }
-
-        h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h3 {
-            color: #764ba2;
-            font-size: 1.5em;
-            margin: 25px 0 15px 0;
-        }
-
-        p, li {
-            line-height: 1.8;
-            color: #333;
-            font-size: 1.1em;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .card h4 {
-            color: #667eea;
-            font-size: 1.3em;
-            margin-bottom: 10px;
-        }
-
-        .icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .example-box {
-            background: #f8f9ff;
-            border-left: 4px solid #764ba2;
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-        }
-
-        .example-box h4 {
-            color: #764ba2;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .comparison-table th {
-            background: #667eea;
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 15px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9ff;
-        }
-
-        .comparison-table tr:hover {
-            background: #e8eaff;
-        }
-
-        .exercise-container {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-        }
-
-        .exercise-container h3 {
-            color: #2d3436;
-            margin-bottom: 20px;
-        }
-
-        .question {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .question p {
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #2d3436;
-        }
-
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .option {
-            background: #f8f9ff;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .option:hover {
-            background: #e8eaff;
-            transform: translateX(5px);
-        }
-
-        .option.selected {
-            border-color: #667eea;
-            background: #e8eaff;
-        }
-
-        .option.correct {
-            border-color: #00b894;
-            background: #d4f4dd;
-        }
-
-        .option.incorrect {
-            border-color: #d63031;
-            background: #ffd7d7;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.1em;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 10px 5px;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .feedback {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            display: none;
-        }
-
-        .feedback.show {
-            display: block;
-            animation: slideDown 0.5s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feedback.success {
-            background: #d4f4dd;
-            border-left: 4px solid #00b894;
-        }
-
-        .feedback.error {
-            background: #ffd7d7;
-            border-left: 4px solid #d63031;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            padding: 30px 40px;
-            background: #f8f9ff;
-        }
-
-        .score-display {
-            text-align: center;
-            font-size: 1.5em;
-            color: #667eea;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .tip-box {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid #667eea;
-        }
-
-        .tip-box strong {
-            color: #667eea;
-        }
-
-        .interactive-source {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .source-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid #e8eaff;
-        }
-
-        .source-item:hover {
-            border-color: #667eea;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
-        }
-
-        .source-item.active {
-            border-color: #764ba2;
-            background: #f8f9ff;
-        }
-
-        .source-details {
-            display: none;
-            background: #f8f9ff;
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        .source-details.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-top: 10px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .content {
-                padding: 20px;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .navigation {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>📚 Módulo 7: Fuentes de Información</h1>
-            <p>Identificando y Evaluando Recursos para tu Investigación</p>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-            <p style="margin-top: 10px; font-size: 0.9em;">Progreso del curso: 87.5% completado</p>
-        </div>
-
-        <div class="content">
-            <div class="section">
-                <h2>🎯 ¿Qué son las Fuentes de Información?</h2>
-                <p>Las <span class="highlight">fuentes de información</span> son todos aquellos recursos que contienen datos, hechos y conocimientos que podemos utilizar para fundamentar nuestra investigación. Son la base documental que sustenta nuestro trabajo científico.</p>
-                
-                <div class="tip-box">
-                    <strong>💡 Importante:</strong> En el desarrollo de software, las fuentes de información incluyen desde documentación técnica oficial, artículos académicos sobre metodologías ágiles, hasta repositorios de código y estudios de caso de implementaciones Scrum.
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Módulo 7: Fuentes de Información</title>
+        <link rel="stylesheet" href="css/mod7.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="module-badge">MÓDULO 7 DE 8</div>
+                <h1>📚 Módulo 7: Fuentes de Información</h1>
+                <p>Identificando y Evaluando Recursos para tu Investigación</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
                 </div>
+                <p style="margin-top: 10px; font-size: 0.9em;">Progreso del curso: 87.5% completado</p>
             </div>
 
-            <div class="section">
-                <h2>📋 Clasificación de las Fuentes de Información</h2>
-                
-                <h3>1. Según su Origen</h3>
-                <div class="card-grid">
-                    <div class="card" onclick="toggleSource('primarias')">
-                        <div class="icon">📄</div>
-                        <h4>Fuentes Primarias</h4>
-                        <p>Información original y de primera mano</p>
-                    </div>
-                    <div class="card" onclick="toggleSource('secundarias')">
-                        <div class="icon">📖</div>
-                        <h4>Fuentes Secundarias</h4>
-                        <p>Análisis e interpretaciones de fuentes primarias</p>
-                    </div>
-                    <div class="card" onclick="toggleSource('terciarias')">
-                        <div class="icon">📚</div>
-                        <h4>Fuentes Terciarias</h4>
-                        <p>Compilaciones y resúmenes de información</p>
-                    </div>
-                </div>
-
-                <div id="source-primarias" class="source-details">
-                    <h4>Fuentes Primarias - Ejemplos en Desarrollo de Software:</h4>
-                    <ul>
-                        <li><strong>Documentación oficial:</strong> Guía oficial de Scrum (scrum.org), documentación de frameworks y lenguajes</li>
-                        <li><strong>Código fuente:</strong> Repositorios en GitHub, GitLab con implementaciones reales</li>
-                        <li><strong>Entrevistas:</strong> Conversaciones con Scrum Masters, desarrolladores, Product Owners</li>
-                        <li><strong>Encuestas originales:</strong> Datos recopilados directamente de equipos de desarrollo</li>
-                        <li><strong>Observación directa:</strong> Registros de Daily Scrums, Sprint Reviews, Retrospectivas</li>
-                        <li><strong>Datos experimentales:</strong> Métricas de rendimiento de sprints, velocidad del equipo</li>
-                    </ul>
-                </div>
-
-                <div id="source-secundarias" class="source-details">
-                    <h4>Fuentes Secundarias - Ejemplos en Desarrollo de Software:</h4>
-                    <ul>
-                        <li><strong>Artículos académicos:</strong> Estudios sobre efectividad de Scrum en IEEE, ACM Digital Library</li>
-                        <li><strong>Libros especializados:</strong> "Scrum: The Art of Doing Twice the Work in Half the Time" (Jeff Sutherland)</li>
-                        <li><strong>Tesis y proyectos:</strong> Investigaciones previas sobre implementación de metodologías ágiles</li>
-                        <li><strong>Análisis de expertos:</strong> Blog posts de Martin Fowler, Uncle Bob, Kent Beck</li>
-                        <li><strong>Casos de estudio:</strong> Análisis de implementaciones Scrum en empresas como Spotify, ING Bank</li>
-                        <li><strong>Reportes técnicos:</strong> State of Agile Report, Stack Overflow Developer Survey</li>
-                    </ul>
-                </div>
-
-                <div id="source-terciarias" class="source-details">
-                    <h4>Fuentes Terciarias - Ejemplos en Desarrollo de Software:</h4>
-                    <ul>
-                        <li><strong>Enciclopedias técnicas:</strong> Wikipedia sobre metodologías ágiles, glosarios de términos</li>
-                        <li><strong>Catálogos:</strong> Awesome Lists en GitHub (Awesome Scrum, Awesome Agile)</li>
-                        <li><strong>Índices bibliográficos:</strong> Google Scholar, ResearchGate, Academia.edu</li>
-                        <li><strong>Directorios:</strong> Listados de herramientas Scrum, comparativas de software</li>
-                        <li><strong>Guías de referencia rápida:</strong> Cheat sheets de Scrum, resúmenes de mejores prácticas</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>2. Según su Formato</h3>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Tipo de Fuente</th>
-                            <th>Descripción</th>
-                            <th>Ejemplos en Software</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Documentales</strong></td>
-                            <td>Material escrito o impreso</td>
-                            <td>Libros técnicos, artículos científicos, manuales de usuario, RFC documents</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Digitales</strong></td>
-                            <td>Recursos en formato electrónico</td>
-                            <td>E-books, PDFs, documentación online, wikis, Notion, Confluence</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Audiovisuales</strong></td>
-                            <td>Contenido multimedia</td>
-                            <td>YouTube tutorials, webinars, conferencias grabadas (Google I/O, Microsoft Build)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Electrónicas en línea</strong></td>
-                            <td>Bases de datos y recursos web</td>
-                            <td>Stack Overflow, GitHub, dev.to, Medium, bases de datos académicas</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Personales</strong></td>
-                            <td>Información de personas</td>
-                            <td>Entrevistas con expertos, mentorías, pair programming sessions</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="section">
-                <h2>✅ Criterios para Evaluar Fuentes de Información</h2>
-                <p>No toda la información es confiable. Usa el método <span class="highlight">CRAAP</span>:</p>
-                
-                <div class="card-grid">
-                    <div class="card">
-                        <div class="icon">📅</div>
-                        <h4>Currency (Actualidad)</h4>
-                        <p>¿Cuándo se publicó? En tecnología, información mayor a 3-5 años puede estar obsoleta.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">🎯</div>
-                        <h4>Relevance (Relevancia)</h4>
-                        <p>¿Se relaciona directamente con tu tema? ¿Es del nivel apropiado?</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">👤</div>
-                        <h4>Authority (Autoridad)</h4>
-                        <p>¿Quién es el autor? ¿Tiene credenciales en el área?</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">🔍</div>
-                        <h4>Accuracy (Precisión)</h4>
-                        <p>¿La información está respaldada por evidencia? ¿Hay referencias?</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">🎭</div>
-                        <h4>Purpose (Propósito)</h4>
-                        <p>¿Por qué existe esta información? ¿Hay sesgos comerciales?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>🔗 Fuentes Confiables para Investigación en Software</h2>
-                
-                <div class="example-box">
-                    <h4>Bases de Datos Académicas Especializadas:</h4>
-                    <ul>
-                        <li><strong>IEEE Xplore:</strong> Artículos sobre ingeniería de software y tecnología</li>
-                        <li><strong>ACM Digital Library:</strong> Publicaciones de la Association for Computing Machinery</li>
-                        <li><strong>SpringerLink:</strong> Libros y journals sobre ciencias de la computación</li>
-                        <li><strong>ScienceDirect:</strong> Artículos científicos multidisciplinarios</li>
-                        <li><strong>Google Scholar:</strong> Buscador académico gratuito</li>
-                    </ul>
-                </div>
-
-                <div class="example-box">
-                    <h4>Recursos Especializados en Scrum y Agile:</h4>
-                    <ul>
-                        <li><strong>Scrum.org:</strong> Recursos oficiales de Scrum</li>
-                        <li><strong>Scrum Alliance:</strong> Comunidad y certificaciones</li>
-                        <li><strong>Agile Alliance:</strong> Recursos sobre metodologías ágiles</li>
-                        <li><strong>Mountain Goat Software:</strong> Blog de Mike Cohn (experto en Scrum)</li>
-                        <li><strong>Scrum Inc.:</strong> Fundada por Jeff Sutherland</li>
-                    </ul>
-                </div>
-
-                <div class="example-box">
-                    <h4>Repositorios y Comunidades Técnicas:</h4>
-                    <ul>
-                        <li><strong>GitHub:</strong> Código fuente y documentación de proyectos</li>
-                        <li><strong>Stack Overflow:</strong> Preguntas y respuestas técnicas</li>
-                        <li><strong>Dev.to:</strong> Artículos de desarrolladores</li>
-                        <li><strong>Medium (Tech Tags):</strong> Blogs técnicos de profesionales</li>
-                        <li><strong>Reddit (r/scrum, r/agile):</strong> Discusiones de la comunidad</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>📝 Cómo Citar Fuentes Correctamente</h2>
-                <p>Las citas dan credibilidad a tu investigación y evitan el plagio. Formatos más usados:</p>
-                
-                <div class="example-box">
-                    <h4>Formato APA (7ª edición) - Más usado en ciencias sociales y educación:</h4>
-                    <p><strong>Libro:</strong><br>
-                    Sutherland, J., & Sutherland, J. J. (2014). <em>Scrum: The art of doing twice the work in half the time</em>. Crown Business.</p>
+            <div class="content">
+                <div class="section">
+                    <h2>🎯 ¿Qué son las Fuentes de Información?</h2>
+                    <div class="inv-img">
+                        <img src="img/fuentes.jpeg" alt="Recolección de la Investigación">
+                    </div>                     
+                    <p>Las <span class="highlight">fuentes de información</span> son todos aquellos recursos que contienen datos, hechos y conocimientos que podemos utilizar para fundamentar nuestra investigación. Son la base documental que sustenta nuestro trabajo científico.</p>
                     
-                    <p><strong>Artículo web:</strong><br>
-                    Schwaber, K. (2020, noviembre). <em>The Scrum Guide</em>. Scrum.org. https://scrumguides.org/</p>
-                    
-                    <p><strong>Artículo académico:</strong><br>
-                    Rodríguez, P., Markkula, J., Oivo, M., & Turula, K. (2012). Survey on agile and lean usage in Finnish software industry. <em>ACM-IEEE International Symposium on Empirical Software Engineering and Measurement</em>, 139-148.</p>
+                    <div class="tip-box">
+                        <strong>💡 Importante:</strong> En el desarrollo de software, las fuentes de información incluyen desde documentación técnica oficial, artículos académicos sobre metodologías ágiles, hasta repositorios de código y estudios de caso de implementaciones Scrum.
+                    </div>
                 </div>
 
-                <div class="example-box">
-                    <h4>Formato IEEE - Más usado en ingeniería y tecnología:</h4>
-                    <p><strong>Artículo:</strong><br>
-                    [1] P. Rodríguez, J. Markkula, M. Oivo, and K. Turula, "Survey on agile and lean usage in Finnish software industry," in <em>Proc. ACM-IEEE Int. Symp. Empirical Softw. Eng. Meas.</em>, 2012, pp. 139-148.</p>
-                    
-                    <p><strong>Libro:</strong><br>
-                    [2] J. Sutherland and J. J. Sutherland, <em>Scrum: The art of doing twice the work in half the time</em>. New York: Crown Business, 2014.</p>
-                </div>
-
-                <div class="tip-box">
-                    <strong>🛠️ Herramientas para gestionar referencias:</strong>
-                    <ul>
-                        <li><strong>Zotero:</strong> Gestor de referencias gratuito y open source</li>
-                        <li><strong>Mendeley:</strong> Gestor con red social académica</li>
-                        <li><strong>EndNote:</strong> Herramienta profesional (de pago)</li>
-                        <li><strong>Citation Machine:</strong> Generador online de citas</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>💼 Ejemplo Práctico: Proyecto Scrum</h2>
-                <div class="example-box">
-                    <h4>Caso: Investigación sobre "Implementación de Scrum en equipos remotos"</h4>
-                    
-                    <p><strong>Fuentes Primarias utilizadas:</strong></p>
-                    <ul>
-                        <li>Encuesta a 50 equipos de desarrollo que trabajan remotamente</li>
-                        <li>Entrevistas con 5 Scrum Masters de empresas latinoamericanas</li>
-                        <li>Análisis de métricas de velocidad de 3 equipos durante 6 sprints</li>
-                        <li>Observación de 10 Daily Scrums virtuales</li>
-                    </ul>
-
-                    <p><strong>Fuentes Secundarias consultadas:</strong></p>
-                    <ul>
-                        <li>Sutherland, J. (2014). Scrum: The Art of Doing Twice the Work</li>
-                        <li>State of Agile Report 2023 - Digital.ai</li>
-                        <li>Artículos de IEEE sobre equipos distribuidos</li>
-                        <li>Blog de Martin Fowler sobre trabajo remoto</li>
-                    </ul>
-
-                    <p><strong>Fuentes Terciarias para contexto:</strong></p>
-                    <ul>
-                        <li>Scrum.org - Glosario de términos</li>
-                        <li>Awesome Remote Work (GitHub)</li>
-                        <li>Wikipedia - Desarrollo ágil de software</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="exercise-container">
-                    <h3>🎯 Ejercicio Práctico: Evaluación de Fuentes</h3>
-                    
-                    <div class="question">
-                        <p>1. Estás investigando sobre la efectividad de Scrum. Encuentras un artículo en un blog personal de 2015 que dice "Scrum no funciona para proyectos grandes". ¿Qué criterio CRAAP deberías cuestionar más?</p>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'q1', false)">
-                                <strong>A)</strong> Relevancia - No se relaciona con mi tema
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q1', true)">
-                                <strong>B)</strong> Actualidad y Autoridad - Es antiguo y no sabemos quién lo escribió
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q1', false)">
-                                <strong>C)</strong> Propósito - Parece tener sesgo comercial
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q1', false)">
-                                <strong>D)</strong> Precisión - No tiene errores gramaticales
-                            </div>
+                <div class="section">
+                    <h2>📋 Clasificación de las Fuentes de Información</h2>
+                    <div class="inv-img">
+                        <img src="img/clasificacion.jpeg" alt="Recolección de la Investigación">
+                    </div>                      
+                    <h3>1. Según su Origen</h3>
+                    <div class="card-grid">
+                        <div class="card" onclick="toggleSource('primarias')">
+                            <div class="icon">📄</div>
+                            <h4>Fuentes Primarias</h4>
+                            <p>Información original y de primera mano</p>
                         </div>
-                        <div id="feedback-q1" class="feedback"></div>
-                    </div>
-
-                    <div class="question">
-                        <p>2. ¿Cuál de las siguientes es una fuente PRIMARIA para investigar sobre implementación de Scrum?</p>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'q2', false)">
-                                <strong>A)</strong> Un libro que analiza múltiples casos de estudio de Scrum
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q2', true)">
-                                <strong>B)</strong> Datos de velocidad recopilados directamente de un equipo durante sus sprints
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q2', false)">
-                                <strong>C)</strong> Un artículo de revisión sobre metodologías ágiles
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q2', false)">
-                                <strong>D)</strong> Una enciclopedia sobre gestión de proyectos
-                            </div>
+                        <div class="card" onclick="toggleSource('secundarias')">
+                            <div class="icon">📖</div>
+                            <h4>Fuentes Secundarias</h4>
+                            <p>Análisis e interpretaciones de fuentes primarias</p>
                         </div>
-                        <div id="feedback-q2" class="feedback"></div>
-                    </div>
-
-                    <div class="question">
-                        <p>3. Para tu proyecto de investigación sobre Scrum, encuentras información en Stack Overflow. ¿Cómo deberías considerarla?</p>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'q3', false)">
-                                <strong>A)</strong> Como fuente primaria confiable, ya que viene de desarrolladores
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q3', false)">
-                                <strong>B)</strong> No debería usarla porque no es académica
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q3', true)">
-                                <strong>C)</strong> Puede ser útil como referencia, pero debo verificar con fuentes más formales
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q3', false)">
-                                <strong>D)</strong> Como la única fuente necesaria para mi investigación
-                            </div>
+                        <div class="card" onclick="toggleSource('terciarias')">
+                            <div class="icon">📚</div>
+                            <h4>Fuentes Terciarias</h4>
+                            <p>Compilaciones y resúmenes de información</p>
                         </div>
-                        <div id="feedback-q3" class="feedback"></div>
                     </div>
 
-                    <div class="question">
-                        <p>4. Necesitas citar un repositorio de GitHub que usaste para analizar código de un proyecto Scrum. ¿Qué tipo de fuente es?</p>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'q4', true)">
-                                <strong>A)</strong> Fuente primaria digital
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q4', false)">
-                                <strong>B)</strong> Fuente secundaria documental
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q4', false)">
-                                <strong>C)</strong> Fuente terciaria electrónica
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q4', false)">
-                                <strong>D)</strong> No se puede considerar fuente de investigación
-                            </div>
-                        </div>
-                        <div id="feedback-q4" class="feedback"></div>
+                    <div id="source-primarias" class="source-details">
+                        <h4>Fuentes Primarias - Ejemplos en Desarrollo de Software:</h4>
+                        <ul>
+                            <li><strong>Documentación oficial:</strong> Guía oficial de Scrum (scrum.org), documentación de frameworks y lenguajes</li>
+                            <li><strong>Código fuente:</strong> Repositorios en GitHub, GitLab con implementaciones reales</li>
+                            <li><strong>Entrevistas:</strong> Conversaciones con Scrum Masters, desarrolladores, Product Owners</li>
+                            <li><strong>Encuestas originales:</strong> Datos recopilados directamente de equipos de desarrollo</li>
+                            <li><strong>Observación directa:</strong> Registros de Daily Scrums, Sprint Reviews, Retrospectivas</li>
+                            <li><strong>Datos experimentales:</strong> Métricas de rendimiento de sprints, velocidad del equipo</li>
+                        </ul>
                     </div>
 
-                    <div class="question">
-                        <p>5. Estás escribiendo tu marco teórico. ¿Cuál es el MEJOR balance de fuentes?</p>
-                        <div class="options">
-                            <div class="option" onclick="selectOption(this, 'q5', false)">
-                                <strong>A)</strong> 100% blogs y tutoriales de internet
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q5', false)">
-                                <strong>B)</strong> Solo fuentes primarias de tus propios datos
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q5', true)">
-                                <strong>C)</strong> Combinación de fuentes académicas, documentación oficial y casos de estudio verificados
-                            </div>
-                            <div class="option" onclick="selectOption(this, 'q5', false)">
-                                <strong>D)</strong> Únicamente Wikipedia y enciclopedias
-                            </div>
-                        </div>
-                        <div id="feedback-q5" class="feedback"></div>
+                    <div id="source-secundarias" class="source-details">
+                        <h4>Fuentes Secundarias - Ejemplos en Desarrollo de Software:</h4>
+                        <ul>
+                            <li><strong>Artículos académicos:</strong> Estudios sobre efectividad de Scrum en IEEE, ACM Digital Library</li>
+                            <li><strong>Libros especializados:</strong> "Scrum: The Art of Doing Twice the Work in Half the Time" (Jeff Sutherland)</li>
+                            <li><strong>Tesis y proyectos:</strong> Investigaciones previas sobre implementación de metodologías ágiles</li>
+                            <li><strong>Análisis de expertos:</strong> Blog posts de Martin Fowler, Uncle Bob, Kent Beck</li>
+                            <li><strong>Casos de estudio:</strong> Análisis de implementaciones Scrum en empresas como Spotify, ING Bank</li>
+                            <li><strong>Reportes técnicos:</strong> State of Agile Report, Stack Overflow Developer Survey</li>
+                        </ul>
                     </div>
 
-                    <button class="btn" onclick="checkAllAnswers()">Verificar Respuestas</button>
-                    <button class="btn" onclick="resetExercise()">Reintentar</button>
+                    <div id="source-terciarias" class="source-details">
+                        <h4>Fuentes Terciarias - Ejemplos en Desarrollo de Software:</h4>
+                        <ul>
+                            <li><strong>Enciclopedias técnicas:</strong> Wikipedia sobre metodologías ágiles, glosarios de términos</li>
+                            <li><strong>Catálogos:</strong> Awesome Lists en GitHub (Awesome Scrum, Awesome Agile)</li>
+                            <li><strong>Índices bibliográficos:</strong> Google Scholar, ResearchGate, Academia.edu</li>
+                            <li><strong>Directorios:</strong> Listados de herramientas Scrum, comparativas de software</li>
+                            <li><strong>Guías de referencia rápida:</strong> Cheat sheets de Scrum, resúmenes de mejores prácticas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>2. Según su Formato</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Fuente</th>
+                                <th>Descripción</th>
+                                <th>Ejemplos en Software</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Documentales</strong></td>
+                                <td>Material escrito o impreso</td>
+                                <td>Libros técnicos, artículos científicos, manuales de usuario, RFC documents</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Digitales</strong></td>
+                                <td>Recursos en formato electrónico</td>
+                                <td>E-books, PDFs, documentación online, wikis, Notion, Confluence</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Audiovisuales</strong></td>
+                                <td>Contenido multimedia</td>
+                                <td>YouTube tutorials, webinars, conferencias grabadas (Google I/O, Microsoft Build)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Electrónicas en línea</strong></td>
+                                <td>Bases de datos y recursos web</td>
+                                <td>Stack Overflow, GitHub, dev.to, Medium, bases de datos académicas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personales</strong></td>
+                                <td>Información de personas</td>
+                                <td>Entrevistas con expertos, mentorías, pair programming sessions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2>✅ Criterios para Evaluar Fuentes de Información</h2>
+                    <div class="inv-img">
+                        <img src="img/evaluar.jpeg" alt="Recolección de la Investigación">
+                    </div>                     
+                    <p>No toda la información es confiable. Usa el método <span class="highlight">CRAAP</span>:</p>
                     
-                    <div id="final-score" class="score-display" style="display: none;"></div>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="icon">📅</div>
+                            <h4>Currency (Actualidad)</h4>
+                            <p>¿Cuándo se publicó? En tecnología, información mayor a 3-5 años puede estar obsoleta.</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">🎯</div>
+                            <h4>Relevance (Relevancia)</h4>
+                            <p>¿Se relaciona directamente con tu tema? ¿Es del nivel apropiado?</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">👤</div>
+                            <h4>Authority (Autoridad)</h4>
+                            <p>¿Quién es el autor? ¿Tiene credenciales en el área?</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">🔍</div>
+                            <h4>Accuracy (Precisión)</h4>
+                            <p>¿La información está respaldada por evidencia? ¿Hay referencias?</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">🎭</div>
+                            <h4>Purpose (Propósito)</h4>
+                            <p>¿Por qué existe esta información? ¿Hay sesgos comerciales?</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>🎯 Actividad Práctica: Construye tu Bibliografía</h2>
-                <div class="example-box">
-                    <h4>Ejercicio para tu Proyecto de Investigación:</h4>
-                    <p><strong>Tarea:</strong> Identifica y lista al menos 10 fuentes para tu proyecto de investigación sobre Scrum.</p>
+                <div class="section">
+                    <h2>🔗 Fuentes Confiables para Investigación en Software</h2>
                     
-                    <p><strong>Requisitos:</strong></p>
-                    <ul>
-                        <li>✅ Al menos 3 fuentes primarias (entrevistas, datos, código)</li>
-                        <li>✅ Al menos 5 fuentes secundarias (artículos, libros, papers)</li>
-                        <li>✅ Máximo 2 fuentes terciarias (para contexto general)</li>
-                        <li>✅ Al menos 3 fuentes académicas (IEEE, ACM, journals)</li>
-                        <li>✅ Al menos 2 fuentes de los últimos 2 años</li>
-                        <li>✅ Cita cada fuente en formato APA o IEEE</li>
-                    </ul>
+                    <div class="example-box">
+                        <h4>Bases de Datos Académicas Especializadas:</h4>
+                        <ul>
+                            <li><strong>IEEE Xplore:</strong> Artículos sobre ingeniería de software y tecnología</li>
+                            <li><strong>ACM Digital Library:</strong> Publicaciones de la Association for Computing Machinery</li>
+                            <li><strong>SpringerLink:</strong> Libros y journals sobre ciencias de la computación</li>
+                            <li><strong>ScienceDirect:</strong> Artículos científicos multidisciplinarios</li>
+                            <li><strong>Google Scholar:</strong> Buscador académico gratuito</li>
+                        </ul>
+                    </div>
 
-                    <p><strong>Plantilla de registro:</strong></p>
-                    <textarea id="bibliografia" style="width: 100%; min-height: 200px; padding: 15px; border-radius: 8px; border: 2px solid #667eea; font-family: monospace; font-size: 0.9em;" placeholder="Ejemplo:
+                    <div class="example-box">
+                        <h4>Recursos Especializados en Scrum y Agile:</h4>
+                        <ul>
+                            <li><strong>Scrum.org:</strong> Recursos oficiales de Scrum</li>
+                            <li><strong>Scrum Alliance:</strong> Comunidad y certificaciones</li>
+                            <li><strong>Agile Alliance:</strong> Recursos sobre metodologías ágiles</li>
+                            <li><strong>Mountain Goat Software:</strong> Blog de Mike Cohn (experto en Scrum)</li>
+                            <li><strong>Scrum Inc.:</strong> Fundada por Jeff Sutherland</li>
+                        </ul>
+                    </div>
 
-FUENTES PRIMARIAS:
-1. [Tipo: Entrevista] Entrevista con Scrum Master de [Empresa], realizada el [fecha]
-2. [Tipo: Datos] Métricas de velocidad de equipo, sprints 1-6, proyecto [nombre]
+                    <div class="example-box">
+                        <h4>Repositorios y Comunidades Técnicas:</h4>
+                        <ul>
+                            <li><strong>GitHub:</strong> Código fuente y documentación de proyectos</li>
+                            <li><strong>Stack Overflow:</strong> Preguntas y respuestas técnicas</li>
+                            <li><strong>Dev.to:</strong> Artículos de desarrolladores</li>
+                            <li><strong>Medium (Tech Tags):</strong> Blogs técnicos de profesionales</li>
+                            <li><strong>Reddit (r/scrum, r/agile):</strong> Discusiones de la comunidad</li>
+                        </ul>
+                    </div>
+                </div>
 
-FUENTES SECUNDARIAS:
-1. Sutherland, J., & Sutherland, J. J. (2014). Scrum: The art of doing twice the work in half the time. Crown Business.
-2. [Continúa agregando tus fuentes...]
-
-FUENTES TERCIARIAS:
-1. Scrum.org. (2023). Glosario de términos Scrum. https://scrumguides.org/glossary"></textarea>
+                <div class="section">
+                    <h2>📝 Cómo Citar Fuentes Correctamente</h2>
+                    <p>Las citas dan credibilidad a tu investigación y evitan el plagio. Formatos más usados:</p>
                     
-                    <button class="btn" onclick="saveBibliografia()" style="margin-top: 15px;">💾 Guardar Mi Bibliografía</button>
-                    <button class="btn" onclick="downloadBibliografia()" style="margin-top: 15px;">📥 Descargar como TXT</button>
+                    <div class="example-box">
+                        <h4>Formato APA (7ª edición) - Más usado en ciencias sociales y educación:</h4>
+                        <p><strong>Libro:</strong><br>
+                        Sutherland, J., & Sutherland, J. J. (2014). <em>Scrum: The art of doing twice the work in half the time</em>. Crown Business.</p>
+                        
+                        <p><strong>Artículo web:</strong><br>
+                        Schwaber, K. (2020, noviembre). <em>The Scrum Guide</em>. Scrum.org. https://scrumguides.org/</p>
+                        
+                        <p><strong>Artículo académico:</strong><br>
+                        Rodríguez, P., Markkula, J., Oivo, M., & Turula, K. (2012). Survey on agile and lean usage in Finnish software industry. <em>ACM-IEEE International Symposium on Empirical Software Engineering and Measurement</em>, 139-148.</p>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Formato IEEE - Más usado en ingeniería y tecnología:</h4>
+                        <p><strong>Artículo:</strong><br>
+                        [1] P. Rodríguez, J. Markkula, M. Oivo, and K. Turula, "Survey on agile and lean usage in Finnish software industry," in <em>Proc. ACM-IEEE Int. Symp. Empirical Softw. Eng. Meas.</em>, 2012, pp. 139-148.</p>
+                        
+                        <p><strong>Libro:</strong><br>
+                        [2] J. Sutherland and J. J. Sutherland, <em>Scrum: The art of doing twice the work in half the time</em>. New York: Crown Business, 2014.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>🛠️ Herramientas para gestionar referencias:</strong>
+                        <ul>
+                            <li><strong>Zotero:</strong> Gestor de referencias gratuito y open source</li>
+                            <li><strong>Mendeley:</strong> Gestor con red social académica</li>
+                            <li><strong>EndNote:</strong> Herramienta profesional (de pago)</li>
+                            <li><strong>Citation Machine:</strong> Generador online de citas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💼 Ejemplo Práctico: Proyecto Scrum</h2>
+                    <div class="inv-img">
+                        <img src="img/scrum.jpeg" alt="Recolección de la Investigación">
+                    </div>                      
+                    <div class="example-box">
+                        <h4>Caso: Investigación sobre "Implementación de Scrum en equipos remotos"</h4>
+                        
+                        <p><strong>Fuentes Primarias utilizadas:</strong></p>
+                        <ul>
+                            <li>Encuesta a 50 equipos de desarrollo que trabajan remotamente</li>
+                            <li>Entrevistas con 5 Scrum Masters de empresas latinoamericanas</li>
+                            <li>Análisis de métricas de velocidad de 3 equipos durante 6 sprints</li>
+                            <li>Observación de 10 Daily Scrums virtuales</li>
+                        </ul>
+
+                        <p><strong>Fuentes Secundarias consultadas:</strong></p>
+                        <ul>
+                            <li>Sutherland, J. (2014). Scrum: The Art of Doing Twice the Work</li>
+                            <li>State of Agile Report 2023 - Digital.ai</li>
+                            <li>Artículos de IEEE sobre equipos distribuidos</li>
+                            <li>Blog de Martin Fowler sobre trabajo remoto</li>
+                        </ul>
+
+                        <p><strong>Fuentes Terciarias para contexto:</strong></p>
+                        <ul>
+                            <li>Scrum.org - Glosario de términos</li>
+                            <li>Awesome Remote Work (GitHub)</li>
+                            <li>Wikipedia - Desarrollo ágil de software</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="exercise-container">
+                        <h3>🎯 Ejercicio Práctico: Evaluación de Fuentes</h3>
+                        
+                        <div class="question">
+                            <p>1. Estás investigando sobre la efectividad de Scrum. Encuentras un artículo en un blog personal de 2015 que dice "Scrum no funciona para proyectos grandes". ¿Qué criterio CRAAP deberías cuestionar más?</p>
+                            <div class="options">
+                                <div class="option" onclick="selectOption(this, 'q1', false)">
+                                    <strong>A)</strong> Relevancia - No se relaciona con mi tema
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q1', true)">
+                                    <strong>B)</strong> Actualidad y Autoridad - Es antiguo y no sabemos quién lo escribió
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q1', false)">
+                                    <strong>C)</strong> Propósito - Parece tener sesgo comercial
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q1', false)">
+                                    <strong>D)</strong> Precisión - No tiene errores gramaticales
+                                </div>
+                            </div>
+                            <div id="feedback-q1" class="feedback"></div>
+                        </div>
+
+                        <div class="question">
+                            <p>2. ¿Cuál de las siguientes es una fuente PRIMARIA para investigar sobre implementación de Scrum?</p>
+                            <div class="options">
+                                <div class="option" onclick="selectOption(this, 'q2', false)">
+                                    <strong>A)</strong> Un libro que analiza múltiples casos de estudio de Scrum
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q2', true)">
+                                    <strong>B)</strong> Datos de velocidad recopilados directamente de un equipo durante sus sprints
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q2', false)">
+                                    <strong>C)</strong> Un artículo de revisión sobre metodologías ágiles
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q2', false)">
+                                    <strong>D)</strong> Una enciclopedia sobre gestión de proyectos
+                                </div>
+                            </div>
+                            <div id="feedback-q2" class="feedback"></div>
+                        </div>
+
+                        <div class="question">
+                            <p>3. Para tu proyecto de investigación sobre Scrum, encuentras información en Stack Overflow. ¿Cómo deberías considerarla?</p>
+                            <div class="options">
+                                <div class="option" onclick="selectOption(this, 'q3', false)">
+                                    <strong>A)</strong> Como fuente primaria confiable, ya que viene de desarrolladores
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q3', false)">
+                                    <strong>B)</strong> No debería usarla porque no es académica
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q3', true)">
+                                    <strong>C)</strong> Puede ser útil como referencia, pero debo verificar con fuentes más formales
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q3', false)">
+                                    <strong>D)</strong> Como la única fuente necesaria para mi investigación
+                                </div>
+                            </div>
+                            <div id="feedback-q3" class="feedback"></div>
+                        </div>
+
+                        <div class="question">
+                            <p>4. Necesitas citar un repositorio de GitHub que usaste para analizar código de un proyecto Scrum. ¿Qué tipo de fuente es?</p>
+                            <div class="options">
+                                <div class="option" onclick="selectOption(this, 'q4', true)">
+                                    <strong>A)</strong> Fuente primaria digital
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q4', false)">
+                                    <strong>B)</strong> Fuente secundaria documental
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q4', false)">
+                                    <strong>C)</strong> Fuente terciaria electrónica
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q4', false)">
+                                    <strong>D)</strong> No se puede considerar fuente de investigación
+                                </div>
+                            </div>
+                            <div id="feedback-q4" class="feedback"></div>
+                        </div>
+
+                        <div class="question">
+                            <p>5. Estás escribiendo tu marco teórico. ¿Cuál es el MEJOR balance de fuentes?</p>
+                            <div class="options">
+                                <div class="option" onclick="selectOption(this, 'q5', false)">
+                                    <strong>A)</strong> 100% blogs y tutoriales de internet
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q5', false)">
+                                    <strong>B)</strong> Solo fuentes primarias de tus propios datos
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q5', true)">
+                                    <strong>C)</strong> Combinación de fuentes académicas, documentación oficial y casos de estudio verificados
+                                </div>
+                                <div class="option" onclick="selectOption(this, 'q5', false)">
+                                    <strong>D)</strong> Únicamente Wikipedia y enciclopedias
+                                </div>
+                            </div>
+                            <div id="feedback-q5" class="feedback"></div>
+                        </div>
+
+                        <button class="btn" onclick="checkAllAnswers()">Verificar Respuestas</button>
+                        <button class="btn" onclick="resetExercise()">Reintentar</button>
+                        
+                        <div id="final-score" class="score-display" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🎯 Actividad Práctica: Construye tu Bibliografía</h2>
+                    <div class="inv-img">
+                        <img src="img/bibliografia.jpeg" alt="Bibliografia de la Investigación">
+                    </div>                    
+                    <div class="example-box">
+                        <h4>Ejercicio para tu Proyecto de Investigación:</h4>
+                        <p><strong>Tarea:</strong> Identifica y lista al menos 10 fuentes para tu proyecto de investigación sobre Scrum.</p>
+                        
+                        <p><strong>Requisitos:</strong></p>
+                        <ul>
+                            <li>✅ Al menos 3 fuentes primarias (entrevistas, datos, código)</li>
+                            <li>✅ Al menos 5 fuentes secundarias (artículos, libros, papers)</li>
+                            <li>✅ Máximo 2 fuentes terciarias (para contexto general)</li>
+                            <li>✅ Al menos 3 fuentes académicas (IEEE, ACM, journals)</li>
+                            <li>✅ Al menos 2 fuentes de los últimos 2 años</li>
+                            <li>✅ Cita cada fuente en formato APA o IEEE</li>
+                        </ul>
+
+                        <p><strong>Plantilla de registro:</strong></p>
+                        <textarea id="bibliografia" style="width: 100%; min-height: 200px; padding: 15px; border-radius: 8px; border: 2px solid #667eea; font-family: monospace; font-size: 0.9em;" placeholder="Ejemplo:
+
+    FUENTES PRIMARIAS:
+    1. [Tipo: Entrevista] Entrevista con Scrum Master de [Empresa], realizada el [fecha]
+    2. [Tipo: Datos] Métricas de velocidad de equipo, sprints 1-6, proyecto [nombre]
+
+    FUENTES SECUNDARIAS:
+    1. Sutherland, J., & Sutherland, J. J. (2014). Scrum: The art of doing twice the work in half the time. Crown Business.
+    2. [Continúa agregando tus fuentes...]
+
+    FUENTES TERCIARIAS:
+    1. Scrum.org. (2023). Glosario de términos Scrum. https://scrumguides.org/glossary"></textarea>
+                        
+                        <button class="btn" onclick="saveBibliografia()" style="margin-top: 15px;">💾 Guardar Mi Bibliografía</button>
+                        <button class="btn" onclick="downloadBibliografia()" style="margin-top: 15px;">📥 Descargar como TXT</button>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🚀 Checklist: Gestión de Fuentes</h2>
+                    <div class="example-box">
+                        <h4>Antes de usar una fuente, verifica:</h4>
+                        <div style="display: grid; gap: 15px; margin-top: 20px;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿La fuente es actual y relevante para mi investigación?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿Puedo identificar claramente al autor y sus credenciales?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿La información está respaldada por datos o referencias?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿He verificado la información con al menos 2 fuentes adicionales?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿Tengo la cita bibliográfica completa y correcta?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿He guardado el PDF o enlace para referencia futura?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿La fuente no tiene conflictos de interés evidentes?</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" class="checklist-item"> 
+                                <span>¿Balanceo fuentes primarias, secundarias y terciarias apropiadamente?</span>
+                            </label>
+                        </div>
+                        <div id="checklist-progress" style="margin-top: 20px; font-weight: bold; color: #667eea; text-align: center;"></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>📊 Resumen del Módulo</h2>
+                    <div class="card-grid">
+                        <div class="card">
+                            <div class="icon">🎯</div>
+                            <h4>Clasificación Clara</h4>
+                            <p>Primarias (originales), Secundarias (análisis), Terciarias (compilaciones)</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">✅</div>
+                            <h4>Evaluación CRAAP</h4>
+                            <p>Actualidad, Relevancia, Autoridad, Precisión, Propósito</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">📚</div>
+                            <h4>Fuentes Confiables</h4>
+                            <p>IEEE, ACM, Scrum.org, GitHub, artículos peer-reviewed</p>
+                        </div>
+                        <div class="card">
+                            <div class="icon">📝</div>
+                            <h4>Citas Correctas</h4>
+                            <p>Formato APA o IEEE para dar credibilidad y evitar plagio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="tip-box">
+                        <strong>🎓 Consejo Final:</strong> La calidad de tu investigación depende directamente de la calidad de tus fuentes. Invierte tiempo en buscar, evaluar y organizar buenas fuentes desde el principio. Usa gestores de referencias como Zotero para mantener todo organizado. ¡Una bibliografía sólida es el fundamento de un proyecto de investigación exitoso!
+                    </div>
+                </div>
+
+                <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; text-align: center;">
+                    <h2 style="color: white;">🎉 ¡Módulo 7 Completado!</h2>
+                    <p style="font-size: 1.2em; margin: 20px 0;">Has aprendido a identificar, evaluar y gestionar fuentes de información de calidad para tu investigación.</p>
+                    <p style="font-size: 1.1em;"><strong>Próximo paso:</strong> Módulo 8 - Proyecto Final Integrador</p>
+                    <p style="margin-top: 20px; opacity: 0.9;">Aplica todo lo aprendido en un proyecto completo de investigación sobre implementación de Scrum</p>
                 </div>
             </div>
 
-            <div class="section">
-                <h2>🚀 Checklist: Gestión de Fuentes</h2>
-                <div class="example-box">
-                    <h4>Antes de usar una fuente, verifica:</h4>
-                    <div style="display: grid; gap: 15px; margin-top: 20px;">
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿La fuente es actual y relevante para mi investigación?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿Puedo identificar claramente al autor y sus credenciales?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿La información está respaldada por datos o referencias?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿He verificado la información con al menos 2 fuentes adicionales?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿Tengo la cita bibliográfica completa y correcta?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿He guardado el PDF o enlace para referencia futura?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿La fuente no tiene conflictos de interés evidentes?</span>
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" class="checklist-item"> 
-                            <span>¿Balanceo fuentes primarias, secundarias y terciarias apropiadamente?</span>
-                        </label>
-                    </div>
-                    <div id="checklist-progress" style="margin-top: 20px; font-weight: bold; color: #667eea; text-align: center;"></div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>📊 Resumen del Módulo</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <div class="icon">🎯</div>
-                        <h4>Clasificación Clara</h4>
-                        <p>Primarias (originales), Secundarias (análisis), Terciarias (compilaciones)</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">✅</div>
-                        <h4>Evaluación CRAAP</h4>
-                        <p>Actualidad, Relevancia, Autoridad, Precisión, Propósito</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">📚</div>
-                        <h4>Fuentes Confiables</h4>
-                        <p>IEEE, ACM, Scrum.org, GitHub, artículos peer-reviewed</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon">📝</div>
-                        <h4>Citas Correctas</h4>
-                        <p>Formato APA o IEEE para dar credibilidad y evitar plagio</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="tip-box">
-                    <strong>🎓 Consejo Final:</strong> La calidad de tu investigación depende directamente de la calidad de tus fuentes. Invierte tiempo en buscar, evaluar y organizar buenas fuentes desde el principio. Usa gestores de referencias como Zotero para mantener todo organizado. ¡Una bibliografía sólida es el fundamento de un proyecto de investigación exitoso!
-                </div>
-            </div>
-
-            <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; text-align: center;">
-                <h2 style="color: white;">🎉 ¡Módulo 7 Completado!</h2>
-                <p style="font-size: 1.2em; margin: 20px 0;">Has aprendido a identificar, evaluar y gestionar fuentes de información de calidad para tu investigación.</p>
-                <p style="font-size: 1.1em;"><strong>Próximo paso:</strong> Módulo 8 - Proyecto Final Integrador</p>
-                <p style="margin-top: 20px; opacity: 0.9;">Aplica todo lo aprendido en un proyecto completo de investigación sobre implementación de Scrum</p>
+            <div class="navigation">
+                <button class="btn" onclick="irModAnterior()">⬅️ Módulo 6: Técnicas de Recolección</button>
+                <button class="btn" onclick="irModSig()">Módulo 8: Proyecto Final ➡️</button>
             </div>
         </div>
-
-        <div class="navigation">
-            <button class="btn" onclick="window.location.href='modulo6.html'">⬅️ Módulo 6: Técnicas de Recolección</button>
-            <button class="btn" onclick="window.location.href='modulo8.html'">Módulo 8: Proyecto Final ➡️</button>
-        </div>
-    </div>
-
-    <script>
-        const answers = {
-            q1: null,
-            q2: null,
-            q3: null,
-            q4: null,
-            q5: null
-        };
-
-        const correctAnswers = {
-            q1: true,
-            q2: true,
-            q3: true,
-            q4: true,
-            q5: true
-        };
-
-        function toggleSource(sourceId) {
-            const allDetails = document.querySelectorAll('.source-details');
-            const targetDetail = document.getElementById('source-' + sourceId);
-            
-            allDetails.forEach(detail => {
-                if (detail.id !== 'source-' + sourceId) {
-                    detail.classList.remove('show');
-                }
-            });
-            
-            targetDetail.classList.toggle('show');
-        }
-
-        function selectOption(element, questionId, isCorrect) {
-            const options = element.parentElement.querySelectorAll('.option');
-            options.forEach(opt => {
-                opt.classList.remove('selected', 'correct', 'incorrect');
-            });
-            
-            element.classList.add('selected');
-            answers[questionId] = isCorrect;
-            
-            const feedback = document.getElementById('feedback-' + questionId);
-            feedback.classList.remove('show', 'success', 'error');
-        }
-
-        function checkAllAnswers() {
-            let allAnswered = true;
-            let correctCount = 0;
-            
-            for (let q in answers) {
-                if (answers[q] === null) {
-                    allAnswered = false;
-                    break;
-                }
-            }
-            
-            if (!allAnswered) {
-                alert('Por favor responde todas las preguntas antes de verificar.');
-                return;
-            }
-            
-            for (let q in answers) {
-                const feedback = document.getElementById('feedback-' + q);
-                const selectedOption = document.querySelector(`#feedback-${q}`).previousElementSibling.querySelector('.selected');
-                
-                if (answers[q]) {
-                    correctCount++;
-                    selectedOption.classList.add('correct');
-                    feedback.className = 'feedback success show';
-                    feedback.innerHTML = '<strong>✅ ¡Correcto!</strong> ' + getExplanation(q, true);
-                } else {
-                    selectedOption.classList.add('incorrect');
-                    feedback.className = 'feedback error show';
-                    feedback.innerHTML = '<strong>❌ Incorrecto.</strong> ' + getExplanation(q, false);
-                }
-            }
-            
-            const scoreDisplay = document.getElementById('final-score');
-            const percentage = (correctCount / 5) * 100;
-            scoreDisplay.style.display = 'block';
-            scoreDisplay.innerHTML = `Tu puntuación: ${correctCount}/5 (${percentage}%)`;
-            
-            if (percentage >= 80) {
-                scoreDisplay.innerHTML += '<br>🎉 ¡Excelente! Dominas la evaluación de fuentes de información.';
-            } else if (percentage >= 60) {
-                scoreDisplay.innerHTML += '<br>👍 Bien. Revisa los conceptos donde fallaste.';
-            } else {
-                scoreDisplay.innerHTML += '<br>📚 Repasa el contenido del módulo para mejorar.';
-            }
-        }
-
-        function getExplanation(questionId, isCorrect) {
-            const explanations = {
-                q1: {
-                    correct: 'Un artículo de 2015 en blog personal carece de actualidad (casi 10 años) y autoridad (no sabemos las credenciales del autor). En tecnología, esto es crítico.',
-                    incorrect: 'La respuesta correcta considera tanto la actualidad (2015 es antiguo para tecnología) como la autoridad (blog personal sin credenciales verificables).'
-                },
-                q2: {
-                    correct: 'Los datos recopilados directamente son fuentes primarias. Son información original de primera mano.',
-                    incorrect: 'Las fuentes primarias son datos originales. Un libro de análisis o artículo de revisión son secundarias; una enciclopedia es terciaria.'
-                },
-                q3: {
-                    correct: 'Stack Overflow es útil como referencia práctica, pero debe complementarse con fuentes académicas más formales para investigación seria.',
-                    incorrect: 'Stack Overflow tiene valor como fuente de conocimiento práctico, pero no debe ser tu única fuente ni descartarse completamente. Úsala con criterio.'
-                },
-                q4: {
-                    correct: 'Un repositorio de GitHub contiene código original (fuente primaria) y está en formato digital.',
-                    incorrect: 'Los repositorios de código son fuentes primarias porque contienen información original de primera mano, no análisis de otros.'
-                },
-                q5: {
-                    correct: 'Un marco teórico sólido combina diferentes tipos de fuentes confiables: académicas para teoría, documentación oficial para prácticas, y casos reales para contexto.',
-                    incorrect: 'Un buen marco teórico requiere diversidad y calidad de fuentes. No puedes basarte solo en blogs, Wikipedia o tus propios datos.'
-                }
-            };
-            
-            return explanations[questionId][isCorrect ? 'correct' : 'incorrect'];
-        }
-
-        function resetExercise() {
-            for (let q in answers) {
-                answers[q] = null;
-            }
-            
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('selected', 'correct', 'incorrect');
-            });
-            
-            document.querySelectorAll('.feedback').forEach(fb => {
-                fb.classList.remove('show');
-            });
-            
-            document.getElementById('final-score').style.display = 'none';
-        }
-
-        function saveBibliografia() {
-            const text = document.getElementById('bibliografia').value;
-            if (text.trim() === '') {
-                alert('Por favor escribe tu bibliografía antes de guardar.');
-                return;
-            }
-            alert('✅ Bibliografía guardada en el navegador. Puedes continuar editándola.');
-        }
-
-        function downloadBibliografia() {
-            const text = document.getElementById('bibliografia').value;
-            if (text.trim() === '') {
-                alert('Por favor escribe tu bibliografía antes de descargar.');
-                return;
-            }
-            
-            const blob = new Blob([text], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'bibliografia_proyecto_investigacion.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        document.querySelectorAll('.checklist-item').forEach(checkbox => {
-            checkbox.addEventListener('change', updateChecklistProgress);
-        });
-
-        function updateChecklistProgress() {
-            const checkboxes = document.querySelectorAll('.checklist-item');
-            const checked = document.querySelectorAll('.checklist-item:checked').length;
-            const total = checkboxes.length;
-            const percentage = Math.round((checked / total) * 100);
-            
-            const progressDiv = document.getElementById('checklist-progress');
-            progressDiv.innerHTML = `Progreso: ${checked}/${total} (${percentage}%)`;
-            
-            if (checked === total) {
-                progressDiv.innerHTML += ' 🎉 ¡Checklist completo!';
-            }
-        }
-
-        console.log('🎓 Módulo 7: Fuentes de Información cargado correctamente');
-        console.log('📚 Recuerda: La calidad de tu investigación depende de la calidad de tus fuentes');
-    </script>
-</body>
+        <script src="js/mod7.js"></script>
+    </body>
 </html>
